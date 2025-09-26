@@ -1,15 +1,23 @@
 {
+  "cleanUrls": true,
   "redirects": [
-    { "source": "https://www.icarius-consulting.com/:path*", "destination": "https://icarius-consulting.com/:path*", "permanent": true }
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.icarius-consulting.com" }],
+      "destination": "https://icarius-consulting.com/:path*",
+      "permanent": true
+    }
   ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        { "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains; preload" },
         { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
         { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "Permissions-Policy", "value": "geolocation=(), microphone=()" }
+        { "key": "Permissions-Policy", "value": "geolocation=(), microphone=(), camera=()" },
+        { "key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self' 'unsafe-inline' plausible.io www.googletagmanager.com www.google-analytics.com assets.calendly.com; connect-src 'self' plausible.io https://formspree.io https://api.formspree.io www.google-analytics.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com assets.calendly.com; img-src 'self' data: https:; font-src 'self' fonts.gstatic.com; frame-src 'self' calendly.com www.youtube-nocookie.com; object-src 'none'" }
       ]
     }
   ]
