@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About — Icarius Consulting</title>
 
-  <link rel="shortcut icon" href="favicon.ico?v=2">
+  <!-- Icons (relative paths for subdirectory support) -->
+  <link href="favicon.ico?v=2" rel="shortcut icon"/>
   <link rel="icon" href="favicon.ico?v=2">
   <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -40,155 +41,249 @@
     }
 
     * { box-sizing: border-box; }
-
-    html, body {
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
       margin: 0;
       padding: 0;
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text);
-      background: radial-gradient(circle at top, rgba(30, 61, 112, 0.28), transparent 55%), var(--bg);
-      min-height: 100%;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    a { color: inherit; text-decoration: none; }
-    img { display: block; max-width: 100%; }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
 
     header {
-      position: sticky;
+      position: fixed;
       top: 0;
-      z-index: 10;
-      background: rgba(7, 10, 18, 0.85);
-      backdrop-filter: blur(12px);
+      left: 0;
+      right: 0;
+      background: rgba(13, 20, 36, 0.8);
+      backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      padding: 1rem 0;
     }
 
-    .container { width: min(1120px, 92vw); margin: 0 auto; }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-    .nav {
+    .logo {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 16px 0;
-      gap: 28px;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 1.25rem;
     }
 
-    .logo-link { display:flex; align-items:center; gap:12px; font-weight:700; letter-spacing:0.02em; }
-    .logo-link img { width:32px; height:32px; }
+    .logo img {
+      width: 32px;
+      height: 32px;
+    }
 
-    nav a { margin-left: 20px; font-weight:500; opacity:0.82; transition: opacity 0.2s ease, color 0.2s ease; }
-    nav a:first-child { margin-left:0; }
-    nav a:hover, nav a:focus-visible { opacity:1; color: var(--accent); }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
 
-    main { padding: 56px 0 120px; }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
 
-    h1 { font-size: clamp(2.2rem, 3.6vw, 3.2rem); margin: 0 0 18px; }
-    p.lead { color: var(--muted); max-width: 680px; line-height: 1.6; font-size: 1.08rem; }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text);
+    }
 
-    section + section { margin-top: 80px; }
+    main {
+      margin-top: 5rem;
+      padding: 4rem 0;
+    }
 
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; }
+    .hero {
+      text-align: center;
+      padding: 4rem 0;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin: 0 0 1rem 0;
+      background: linear-gradient(135deg, var(--brand), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 4rem 0;
+    }
+
+    .section h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
 
     .card {
-      background: linear-gradient(150deg, var(--surface), var(--surface-alt));
+      background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 22px;
-      padding: 32px;
+      border-radius: 1rem;
+      padding: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
       box-shadow: var(--shadow);
     }
 
-    .card h2 { margin: 0 0 12px; font-size: 1.35rem; }
-    .card p { margin: 0 0 16px; color: var(--muted); line-height: 1.6; }
-    .card ul { margin: 0; padding-left: 18px; color: var(--muted); line-height: 1.5; }
+    .card h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--brand);
+    }
 
-    .quote {
-      border-left: 4px solid var(--accent);
-      padding-left: 18px;
-      margin: 24px 0 0;
+    .card p {
       color: var(--muted);
-      font-style: italic;
+    }
+
+    .cta {
+      text-align: center;
+      padding: 4rem 0;
+    }
+
+    .btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--brand), var(--accent));
+      color: white;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(124, 92, 255, 0.3);
     }
 
     footer {
-      margin-top: 120px;
-      padding: 32px 0 48px;
+      background: var(--surface);
       border-top: 1px solid var(--border);
-      color: var(--muted);
+      padding: 2rem 0;
       text-align: center;
-      font-size: 0.9rem;
+      color: var(--muted);
     }
 
-    @media (max-width: 720px) {
-      nav a { margin-left: 14px; }
-      .card { padding: 24px; }
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .container {
+        padding: 0 1rem;
+      }
     }
   </style>
 </head>
+
 <body>
   <header>
-    <div class="container nav">
-      <a href="index.html" class="logo-link" aria-label="Go to Home">
-        <img src="icarius-logo.svg" alt="Icarius Consulting logo">
-        <span>Icarius Consulting</span>
-      </a>
+    <div class="container">
       <nav>
-        <a href="services.html">Services</a>
-        <a href="work.html">Work</a>
-        <a href="about.html">About</a>
-        <a href="packages.html">Packages</a>
-        <a href="index.html#contact">Book a Call</a>
+        <a href="index.html" class="logo">
+          <img src="logo.svg" alt="Icarius Consulting">
+          Icarius
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html" class="active">About</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="packages.html">Packages</a></li>
+        </ul>
       </nav>
     </div>
   </header>
 
-  <main class="container">
-    <section>
-      <h1>About Icarius</h1>
-      <p class="lead">Icarius Consulting is a collective of HR technologists, programme leaders, and change specialists. We believe HR systems should feel human and deliver measurable business value.</p>
-      <div class="quote">“Technology is only transformative when people are empowered to use it. We meet your teams where they are and build momentum together.”</div>
-    </section>
+  <main>
+    <div class="container">
+      <section class="hero">
+        <h1>About Icarius</h1>
+        <p>Expert HR technology consulting and project management services designed to transform your organization's human resources capabilities.</p>
+      </section>
 
-    <section class="grid" aria-label="Our principles">
-      <article class="card">
-        <h2>Human-first delivery</h2>
-        <p>Every project starts with the employee experience. We design journeys, communications, and training that resonate.</p>
-        <ul>
-          <li>Co-design workshops with HR, IT, and end users</li>
-          <li>Enablement plans that reduce support overhead</li>
-          <li>Inclusive change activities across regions</li>
-        </ul>
-      </article>
+      <section class="section">
+        <h2>Our Expertise</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>HRIT Advisory</h3>
+            <p>Strategic guidance on HR technology implementation, optimization, and digital transformation initiatives.</p>
+          </div>
+          <div class="card">
+            <h3>Project Management</h3>
+            <p>End-to-end project leadership for complex HR system implementations and organizational change initiatives.</p>
+          </div>
+          <div class="card">
+            <h3>HR System Audit</h3>
+            <p>Comprehensive analysis of your current HR technology stack to identify opportunities for improvement and optimization.</p>
+          </div>
+          <div class="card">
+            <h3>HR AI Expertise</h3>
+            <p>Cutting-edge artificial intelligence solutions to enhance recruitment, performance management, and employee experience.</p>
+          </div>
+        </div>
+      </section>
 
-      <article class="card">
-        <h2>Data-rich decisions</h2>
-        <p>We activate analytics, AI, and automation responsibly to help leaders move faster with confidence.</p>
-        <ul>
-          <li>Insight-driven roadmaps and prioritisation</li>
-          <li>Secure data models and governance frameworks</li>
-          <li>Dashboards that blend HR, finance, and CX signals</li>
-        </ul>
-      </article>
-
-      <article class="card">
-        <h2>Built-in enablement</h2>
-        <p>We leave teams stronger than we found them by sharing our playbooks, templates, and rituals.</p>
-        <ul>
-          <li>Embedded delivery coaching</li>
-          <li>Reusable templates and runbooks</li>
-          <li>Capability uplift for HRIT, PMO, and analytics teams</li>
-        </ul>
-      </article>
-    </section>
+      <section class="cta">
+        <h2>Ready to Transform Your HR Technology?</h2>
+        <p>Let's discuss how we can help optimize your human resources operations.</p>
+        <a href="packages.html" class="btn">View Our Packages</a>
+      </section>
+    </div>
   </main>
 
   <footer>
-    <div class="container">&copy; <span id="year"></span> Icarius Consulting. All rights reserved.</div>
+    <div class="container">
+      <p>&copy; 2024 Icarius Consulting. All rights reserved.</p>
+    </div>
   </footer>
-
-  <script>
-    const yearEl = document.getElementById('year');
-    if (yearEl) {
-      yearEl.textContent = new Date().getFullYear();
-    }
-  </script>
 </body>
 </html>
