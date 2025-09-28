@@ -5,12 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About — Icarius Consulting</title>
 
+  <!-- Icons (relative paths + cache-busting) -->
   <link rel="shortcut icon" href="favicon.ico?v=2">
   <link rel="icon" href="favicon.ico?v=2">
   <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+  <!-- PWA -->
   <link rel="manifest" href="manifest.json">
 
+  <!-- Social previews -->
   <meta property="og:title" content="About — Icarius Consulting" />
   <meta property="og:description" content="HRIT Advisory • Project Management • HR System Audit • HR AI Expertise" />
   <meta property="og:image" content="og-image-brand.png" />
@@ -24,95 +28,50 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root { --bg:#0b101b; --text:#e7ecf3; --muted:#9fb0c3; --brand:#7c5cff; --accent:#18c2b5; --card:#0f1424; }
+    * { box-sizing: border-box; }
+    html, body { margin:0; padding:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color: var(--text); background: var(--bg); }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1120px, 92vw); margin: 0 auto; }
+    header { position: sticky; top: 0; background: rgba(11,16,27,0.75); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .nav { display:flex; align-items:center; justify-content:space-between; gap: 20px; padding: 12px 0; }
+    .logo-link { display:flex; align-items:center; gap:10px; font-weight: 800; letter-spacing:.2px; }
+    .logo-link img { width:28px; height:28px; display:block; }
+    header nav a { opacity:.9; margin-left:18px; position:relative; }
+    header nav a:hover { opacity:1; }
+    main { padding: 28px 0 40px; }
+    .hero-logo { display:flex; align-items:center; gap:14px; margin: 12px 0 18px; }
+    .hero-logo img { width:40px; height:40px; }
+    .muted { color: var(--muted); }
+  </style>
 </head>
+
 <body>
   <header>
-    <div class="container nav">
-      <a href="index.html#top" class="logo-link" aria-label="Go to Home">
-        <img src="icarius-logo.svg" alt="Icarius Consulting logo" loading="eager" decoding="async">
-        <span>Icarius Consulting</span>
-      </a>
-      <nav>
-        <a href="index.html#services">Services</a>
-        <a href="work.html">Work</a>
-        <a href="about.html" aria-current="page">About</a>
-        <a href="packages.html">Packages</a>
-        <a href="index.html#contact">Book a Call</a>
-      </nav>
+  <div class="container nav">
+    <a href="index.html#top" class="logo-link" aria-label="Go to Home">
+      <img src="icarius-logo.svg" alt="Icarius Consulting logo" loading="eager" decoding="async">
+      <span>Icarius Consulting</span>
+    </a>
+    <nav>
+      <a href="index.html#services">Services</a>
+      <a href="work.html">Work</a>
+      <a href="about.html">About</a>
+      <a href="packages.html">Packages</a>
+      <a href="index.html#contact">Book a Call</a>
+    </nav>
+  </div>
+</header>
+
+  <main class="container">
+    <div class="hero-logo">
+      <img src="icarius-logo.svg" alt="Icarius Consulting logo">
+      <h1>About</h1>
     </div>
-  </header>
-
-  <main>
-    <section class="container hero" id="about">
-      <div>
-        <span class="eyebrow">About us</span>
-        <h1>Operating partners for ambitious HR teams.</h1>
-        <p>We founded Icarius Consulting to bridge the gap between strategy and execution in HR technology. Our team brings two decades of hands-on leadership across global HRIS programmes, talent systems, and people analytics functions.</p>
-        <p>From FTSE 100 enterprises to fast-growth scale-ups, we guide clients through complex transformations with clarity, pragmatism, and a relentless focus on value.</p>
-      </div>
-      <div class="hero-card">
-        <h3>Our leadership</h3>
-        <p><strong>Jamie Morgan</strong> — Managing Partner. Former Global Head of HR Technology at a FTSE 100 retailer, leading multi-year Workday and SAP transformations.</p>
-        <p><strong>Amelia Singh</strong> — Delivery Partner. Programme director with 15+ years steering HRIS initiatives, shared services design, and change management.</p>
-      </div>
-    </section>
-
-    <section class="container" id="values">
-      <span class="eyebrow">Principles</span>
-      <h2>Values that shape every engagement.</h2>
-      <div class="grid-3">
-        <article class="card">
-          <h3>Clarity</h3>
-          <p>We translate technical complexity into clear decisions, bringing stakeholders along the journey and surfacing risks early.</p>
-        </article>
-        <article class="card">
-          <h3>Momentum</h3>
-          <p>Delivery cadence matters. We build lightweight governance rhythms that keep programmes accountable without slowing execution.</p>
-        </article>
-        <article class="card">
-          <h3>Partnership</h3>
-          <p>Your goals become ours. We embed with your people, strengthen capability, and leave lasting playbooks for continuous improvement.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="container" id="credentials">
-      <div class="split">
-        <div>
-          <span class="eyebrow">Credentials</span>
-          <h2>Certified specialists across the leading HR technology stack.</h2>
-          <p>Our consultants are certified across Workday, SAP SuccessFactors, and Oracle HCM, with complementary expertise in payroll, time, and analytics integrations.</p>
-          <ul class="checklist">
-            <li><span>✓</span> Workday Pro: HCM, Recruiting, Talent &amp; Performance</li>
-            <li><span>✓</span> SAP SuccessFactors EC &amp; Talent certified</li>
-            <li><span>✓</span> Prosci change management practitioners</li>
-            <li><span>✓</span> Prince2 Agile &amp; PMP certified programme leaders</li>
-          </ul>
-        </div>
-        <div class="hero-card">
-          <p class="quote">“They quickly became an extension of our HR leadership, offering the right mix of strategic guidance and sleeves-rolled-up delivery. Our time-to-value accelerated immediately.”</p>
-          <footer>VP People Operations, Series D SaaS</footer>
-        </div>
-      </div>
-    </section>
+    <p>Content for About page</p>
   </main>
-
-  <footer>
-    <div class="container footer-inner">
-      <span class="muted">© <span id="year"></span> Icarius Consulting. All rights reserved.</span>
-      <nav>
-        <a href="index.html#services">Services</a>
-        <a href="work.html">Work</a>
-        <a href="about.html" aria-current="page">About</a>
-        <a href="packages.html">Packages</a>
-      </nav>
-    </div>
-  </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>

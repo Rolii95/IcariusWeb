@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Icarius Consulting — HRIT Advisory, Project Management, HR System Audit, HR AI Expertise</title>
 
-  <!-- Icons (absolute paths + cache-busting) -->
+  <!-- Icons (relative paths + cache-busting) -->
   <link rel="shortcut icon" href="favicon.ico?v=2">
   <link rel="icon" href="favicon.ico?v=2">
   <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
@@ -28,172 +28,52 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root { --bg:#0b101b; --text:#e7ecf3; --muted:#9fb0c3; --brand:#7c5cff; --accent:#18c2b5; --card:#0f1424; }
+    * { box-sizing: border-box; }
+    html, body { margin:0; padding:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color: var(--text); background: var(--bg); }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1120px, 92vw); margin: 0 auto; }
+    header { position: sticky; top: 0; background: rgba(11,16,27,0.75); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .nav { display:flex; align-items:center; justify-content:space-between; gap: 20px; padding: 12px 0; }
+    .logo-link { display:flex; align-items:center; gap:10px; font-weight: 800; letter-spacing:.2px; }
+    .logo-link img { width:28px; height:28px; display:block; }
+    header nav a { opacity:.9; margin-left:18px; position:relative; }
+    header nav a:hover { opacity:1; }
+    main { padding: 28px 0 40px; }
+    .hero-logo { display:flex; align-items:center; gap:14px; margin: 12px 0 18px; }
+    .hero-logo img { width:40px; height:40px; }
+    .muted { color: var(--muted); }
+  </style>
 </head>
 
 <body>
   <div id="top"></div>
   <header>
-    <div class="container nav">
-      <a href="index.html#top" class="logo-link" aria-label="Go to Home">
-        <img src="icarius-logo.svg" alt="Icarius Consulting logo" loading="eager" decoding="async">
-        <span>Icarius Consulting</span>
-      </a>
-      <nav>
-        <a href="index.html#services">Services</a>
-        <a href="work.html">Work</a>
-        <a href="about.html">About</a>
-        <a href="packages.html">Packages</a>
-        <a href="index.html#contact">Book a Call</a>
-      </nav>
+  <div class="container nav">
+    <a href="index.html#top" class="logo-link" aria-label="Go to Home">
+      <img src="icarius-logo.svg" alt="Icarius Consulting logo" loading="eager" decoding="async">
+      <span>Icarius Consulting</span>
+    </a>
+    <nav>
+      <a href="index.html#services">Services</a>
+      <a href="work.html">Work</a>
+      <a href="about.html">About</a>
+      <a href="packages.html">Packages</a>
+      <a href="index.html#contact">Book a Call</a>
+    </nav>
+  </div>
+</header>
+
+  <main class="container">
+    <div class="hero-logo">
+      <img src="icarius-logo.svg" alt="Icarius Consulting logo">
+      <h1>Icarius Consulting</h1>
     </div>
-  </header>
-
-  <main>
-    <section class="container hero" id="hero">
-      <div class="hero-copy">
-        <span class="eyebrow">HR Technology, Delivered</span>
-        <h1>Transforming HR operations with pragmatic technology leadership.</h1>
-        <p>Icarius Consulting partners with HR teams to design, implement, and optimise HR systems. We connect the dots between people, process, and platforms so you ship reliable employee experiences.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#contact">Book a discovery call</a>
-          <a class="btn btn-ghost" href="packages.html">View packages</a>
-        </div>
-        <ul class="checklist">
-          <li><span>✓</span> HRIS transformations delivered end-to-end</li>
-          <li><span>✓</span> Audits with remediation plans in under 2 weeks</li>
-          <li><span>✓</span> Fractional HRIT leadership embedded in your team</li>
-        </ul>
-      </div>
-      <div class="hero-visual">
-        <div class="hero-card">
-          <p class="tagline">"The calm centre for complex HR tech programmes."</p>
-          <p class="muted">From Workday to SAP SuccessFactors, our consultants orchestrate global rollouts, data migrations, and vendor ecosystems with senior stakeholder confidence.</p>
-          <ul class="list-inline">
-            <li>• Workday</li>
-            <li>• SAP SuccessFactors</li>
-            <li>• Oracle HCM</li>
-            <li>• HiBob</li>
-            <li>• People analytics</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="container" id="services">
-      <span class="eyebrow">What we do</span>
-      <h2>Advisory and delivery for mission-critical HR programmes.</h2>
-      <p>Whether you are preparing for a system upgrade or building a resilient HR operations model, Icarius Consulting provides hands-on leadership to get you live without surprises.</p>
-      <div class="grid-3" aria-label="List of Icarius Consulting services">
-        <article class="card">
-          <span class="badge">Advisory</span>
-          <h3>HRIT Strategy &amp; Roadmapping</h3>
-          <p>Define a clear vision, architecture, and delivery roadmap aligned with business goals. We assess current capabilities, identify quick wins, and build consensus across stakeholders.</p>
-        </article>
-        <article class="card">
-          <span class="badge">Delivery</span>
-          <h3>Implementation Programme Leadership</h3>
-          <p>Experienced programme directors embed within your team to orchestrate vendors, manage RAID logs, and keep budgets, timelines, and change impacts on track.</p>
-        </article>
-        <article class="card">
-          <span class="badge">Assurance</span>
-          <h3>HR System Audit &amp; Controls</h3>
-          <p>Independent controls and configuration review covering security, integrations, and reporting. Delivered with actionable remediation steps and prioritised backlog.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="container" id="approach">
-      <div class="split">
-        <div>
-          <span class="eyebrow">How we work</span>
-          <h2>Pragmatic expertise with a delivery-first mindset.</h2>
-          <p>Our senior team has led programmes in FTSE 100 and scale-up environments. We blend structured PMO discipline with the flexibility required for fast-moving HR organisations.</p>
-          <ul class="checklist">
-            <li><span>✓</span> Vendor orchestration and governance</li>
-            <li><span>✓</span> Global template &amp; localisation management</li>
-            <li><span>✓</span> Change, communications &amp; training alignment</li>
-            <li><span>✓</span> Data migration &amp; reconciliation oversight</li>
-          </ul>
-        </div>
-        <div class="hero-card">
-          <p class="quote">“Icarius are our go-to partners for complex HRIS initiatives. They provided the structure, stakeholder confidence, and technical rigour we needed to launch a new Workday landscape across 40 countries.”</p>
-          <footer>Chief People Officer, Global Fintech</footer>
-        </div>
-      </div>
-    </section>
-
-    <section class="container" id="packages-preview">
-      <span class="eyebrow">Popular packages</span>
-      <h2>Right-sized engagements designed for momentum.</h2>
-      <div class="grid-3" id="packageCards" aria-live="polite"></div>
-      <p class="muted">Looking for something bespoke? <a href="#contact">Let’s design an engagement</a> that fits your delivery milestones.</p>
-    </section>
-
-    <section class="container" id="contact">
-      <div class="split">
-        <div>
-          <span class="eyebrow">Book a call</span>
-          <h2>Let’s map your HR technology roadmap.</h2>
-          <p>Share a few details about your programme, and we’ll arrange a 30-minute discovery session to align on goals, timelines, and the right delivery model.</p>
-          <ul class="list-inline">
-            <li>📧 <a href="mailto:hello@icarius-consulting.com">hello@icarius-consulting.com</a></li>
-            <li>📍 London · Remote-first</li>
-          </ul>
-        </div>
-        <div class="contact-card" role="group" aria-labelledby="contact-title">
-          <h3 id="contact-title">Discovery call agenda</h3>
-          <ul class="checklist">
-            <li><span>1</span> Understand your HR tech landscape</li>
-            <li><span>2</span> Prioritise outcomes &amp; dependencies</li>
-            <li><span>3</span> Recommend approach &amp; next steps</li>
-          </ul>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="mailto:hello@icarius-consulting.com?subject=Discovery%20call%20request">Email us</a>
-            <a class="btn btn-ghost" href="packages.html">Explore pricing</a>
-          </div>
-        </div>
-      </div>
-    </section>
+    <p class="muted">Home content here. Below is an example image render test (uses the OG image):</p>
+    <p><img src="og-image-brand.png" alt="Icarius OG image preview" style="max-width:100%; height:auto; border:1px solid rgba(255,255,255,0.08)"></p>
   </main>
-
-  <footer>
-    <div class="container footer-inner">
-      <span class="muted">© <span id="year"></span> Icarius Consulting. All rights reserved.</span>
-      <nav>
-        <a href="index.html#services">Services</a>
-        <a href="work.html">Work</a>
-        <a href="about.html">About</a>
-        <a href="packages.html">Packages</a>
-      </nav>
-    </div>
-  </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    async function populatePackages() {
-      try {
-        const response = await fetch('packages.json');
-        if (!response.ok) throw new Error('Network response was not ok');
-        const data = await response.json();
-        const container = document.getElementById('packageCards');
-        container.innerHTML = data.map(pkg => `
-          <article class="card">
-            <span class="badge">${pkg.badge}</span>
-            <h3>${pkg.price} <span class="muted">${pkg.unit}</span></h3>
-            <p>${pkg.desc}</p>
-            <a class="btn btn-ghost" href="packages.html">View details</a>
-          </article>
-        `).join('');
-      } catch (err) {
-        document.getElementById('packageCards').innerHTML = '<p class="muted">Packages currently unavailable. Please email hello@icarius-consulting.com for a tailored quote.</p>';
-        console.error('Failed to load packages:', err);
-      }
-    }
-
-    populatePackages();
-  </script>
 </body>
 </html>
