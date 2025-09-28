@@ -97,24 +97,49 @@
       height: 32px;
     }
 
-    .nav-links {
+    .breadcrumb-nav {
+      margin-left: auto;
+    }
+
+    .breadcrumb-list {
       display: flex;
-      gap: 2rem;
+      align-items: center;
+      gap: 1rem;
       list-style: none;
       margin: 0;
       padding: 0;
+      color: var(--muted);
+      font-weight: 500;
     }
 
-    .nav-links a {
-      color: var(--muted);
+    .breadcrumb-item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .breadcrumb-item + .breadcrumb-item::before {
+      content: "/";
+      color: rgba(149, 168, 197, 0.6);
+      font-weight: 400;
+    }
+
+    .breadcrumb-item a {
+      color: inherit;
       text-decoration: none;
-      font-weight: 500;
       transition: color 0.3s ease;
     }
 
-    .nav-links a:hover,
-    .nav-links a.active {
+    .breadcrumb-item a:hover {
       color: var(--text);
+    }
+
+    .breadcrumb-item a[aria-current="page"] {
+      color: var(--text);
+      font-weight: 600;
+      pointer-events: none;
+      cursor: default;
     }
 
     .hero {
@@ -242,10 +267,21 @@
     }
 
     @media (max-width: 768px) {
-      .nav-links {
-        display: none;
+      .breadcrumb-nav {
+        margin-left: 0;
       }
-      
+
+      .breadcrumb-list {
+        gap: 0.75rem;
+        font-size: 0.95rem;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .breadcrumb-item {
+        gap: 0.75rem;
+      }
+
       .hero h1 {
         font-size: 2.5rem;
       }
@@ -274,13 +310,15 @@
           <img src="logo.svg" alt="Icarius Consulting">
           Icarius
         </a>
-        <ul class="nav-links">
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="work.html">Work</a></li>
-          <li><a href="packages.html">Packages</a></li>
-        </ul>
+        <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+          <ol class="breadcrumb-list">
+            <li class="breadcrumb-item"><a href="index.html" aria-current="page">Home</a></li>
+            <li class="breadcrumb-item"><a href="about.html">About</a></li>
+            <li class="breadcrumb-item"><a href="services.html">Services</a></li>
+            <li class="breadcrumb-item"><a href="work.html">Work</a></li>
+            <li class="breadcrumb-item"><a href="packages.html">Packages</a></li>
+          </ol>
+        </nav>
       </nav>
     </div>
   </header>
