@@ -5,26 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Icarius Consulting — HRIT Advisory, Project Management, HR System Audit, HR AI Expertise</title>
 
-  <!-- Icons (relative paths + cache-busting) -->
-  <link rel="shortcut icon" href="favicon.ico?v=2">
-  <link rel="icon" href="favicon.ico?v=2">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <!-- Icons (root-relative paths + cache-busting) -->
+  <link rel="shortcut icon" href="/favicon.ico?v=2">
+  <link rel="icon" href="/favicon.ico?v=2">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
   <!-- PWA -->
-  <link rel="manifest" href="manifest.json">
+  <link rel="manifest" href="/manifest.json">
 
   <!-- Social previews -->
   <meta property="og:title" content="Icarius Consulting — HRIT Advisory, Project Management, HR System Audit, HR AI Expertise" />
   <meta property="og:description" content="HRIT Advisory • Project Management • HR System Audit • HR AI Expertise" />
-  <meta property="og:image" content="og-image-brand.png" />
+  <meta property="og:image" content="/og-image-brand.png" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://icarius-consulting.com/" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Icarius Consulting — HRIT Advisory, Project Management, HR System Audit, HR AI Expertise" />
   <meta name="twitter:description" content="HRIT Advisory • Project Management • HR System Audit • HR AI Expertise" />
-  <meta name="twitter:image" content="og-image-brand.png" />
+  <meta name="twitter:image" content="/og-image-brand.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -317,15 +317,15 @@
 <body>
   <header>
     <div class="container nav">
-      <a href="index.html" class="logo-link" aria-label="Go to Home">
-        <img src="icarius-logo.svg" alt="Icarius Consulting logo" loading="eager" decoding="async">
+      <a href="/" class="logo-link" aria-label="Go to Home">
+        <img src="/icarius-logo.svg" alt="Icarius Consulting logo" loading="eager" decoding="async">
         <span>Icarius Consulting</span>
       </a>
       <nav>
-        <a href="services.html">Services</a>
-        <a href="work.html">Work</a>
-        <a href="about.html">About</a>
-        <a href="packages.html">Packages</a>
+        <a href="/services.html">Services</a>
+        <a href="/work.html">Work</a>
+        <a href="/about.html">About</a>
+        <a href="/packages.html">Packages</a>
         <a href="#contact">Book a Call</a>
       </nav>
     </div>
@@ -335,7 +335,7 @@
     <section class="hero" id="top">
       <div>
         <div class="hero-logo" aria-hidden="true">
-          <img src="icarius-logo.svg" alt="" width="56" height="56">
+          <img src="/icarius-logo.svg" alt="" width="56" height="56">
         </div>
         <h1>High-velocity HR tech delivery with people-first impact.</h1>
         <p>We partner with scale-ups and enterprises to deliver HR systems that empower teams. From strategic advisory to implementation and optimisation, we bring clarity, cadence, and measurable outcomes.</p>
@@ -345,7 +345,7 @@
         </div>
       </div>
       <div>
-        <img src="og-image-brand.png" alt="Icarius Consulting brand graphic" style="border-radius: 24px; border: 1px solid var(--border); box-shadow: var(--shadow);">
+        <img src="/og-image-brand.png" alt="Icarius Consulting brand graphic" style="border-radius: 24px; border: 1px solid var(--border); box-shadow: var(--shadow);">
       </div>
     </section>
 
@@ -425,7 +425,7 @@
   <script type="module">
     const packagesEl = document.getElementById('packages');
     if (packagesEl) {
-      fetch('packages.json')
+      fetch('/packages.json')
         .then((response) => {
           if (!response.ok) throw new Error('Unable to load packages');
           return response.json();
