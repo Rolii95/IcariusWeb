@@ -5,16 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Work — Icarius Consulting</title>
 
-  <!-- Icons (absolute paths + cache-busting) -->
   <link rel="shortcut icon" href="/favicon.ico?v=2">
   <link rel="icon" href="/favicon.ico?v=2">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-
-  <!-- PWA -->
   <link rel="manifest" href="/manifest.json">
 
-  <!-- Social previews -->
   <meta property="og:title" content="Work — Icarius Consulting" />
   <meta property="og:description" content="HRIT Advisory • Project Management • HR System Audit • HR AI Expertise" />
   <meta property="og:image" content="/og-image-brand.png" />
@@ -28,50 +24,93 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-
-  <style>
-    :root { --bg:#0b101b; --text:#e7ecf3; --muted:#9fb0c3; --brand:#7c5cff; --accent:#18c2b5; --card:#0f1424; }
-    * { box-sizing: border-box; }
-    html, body { margin:0; padding:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color: var(--text); background: var(--bg); }
-    a { color: inherit; text-decoration: none; }
-    .container { width: min(1120px, 92vw); margin: 0 auto; }
-    header { position: sticky; top: 0; background: rgba(11,16,27,0.75); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(255,255,255,0.06); }
-    .nav { display:flex; align-items:center; justify-content:space-between; gap: 20px; padding: 12px 0; }
-    .logo-link { display:flex; align-items:center; gap:10px; font-weight: 800; letter-spacing:.2px; }
-    .logo-link img { width:28px; height:28px; display:block; }
-    header nav a { opacity:.9; margin-left:18px; position:relative; }
-    header nav a:hover { opacity:1; }
-    main { padding: 28px 0 40px; }
-    .hero-logo { display:flex; align-items:center; gap:14px; margin: 12px 0 18px; }
-    .hero-logo img { width:40px; height:40px; }
-    .muted { color: var(--muted); }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
 </head>
-
 <body>
   <header>
-  <div class="container nav">
-    <a href="/index.html#top" class="logo-link" aria-label="Go to Home">
-      <img src="/icarius-logo.svg" alt="Icarius Consulting logo" loading="eager" decoding="async">
-      <span>Icarius Consulting</span>
-    </a>
-    <nav>
-      <a href="/index.html#services">Services</a>
-      <a href="/work.html">Work</a>
-      <a href="/about.html">About</a>
-      <a href="/packages.html">Packages</a>
-      <a href="/index.html#contact">Book a Call</a>
-    </nav>
-  </div>
-</header>
-
-  <main class="container">
-    <div class="hero-logo">
-      <img src="/icarius-logo.svg" alt="Icarius Consulting logo">
-      <h1>Work</h1>
+    <div class="container nav">
+      <a href="/index.html#top" class="logo-link" aria-label="Go to Home">
+        <img src="/icarius-logo.svg" alt="Icarius Consulting logo" loading="eager" decoding="async">
+        <span>Icarius Consulting</span>
+      </a>
+      <nav>
+        <a href="/index.html#services">Services</a>
+        <a href="/work.html" aria-current="page">Work</a>
+        <a href="/about.html">About</a>
+        <a href="/packages.html">Packages</a>
+        <a href="/index.html#contact">Book a Call</a>
+      </nav>
     </div>
-    <p>Content for Work page</p>
+  </header>
+
+  <main>
+    <section class="container hero" id="work">
+      <div>
+        <span class="eyebrow">Selected work</span>
+        <h1>Programmes we’ve led for global people teams.</h1>
+        <p>We partner with HR, IT, and Finance to ship complex programmes that combine technology, process, and change. Here is a glimpse of recent engagements.</p>
+      </div>
+      <div class="hero-card">
+        <h3>Impact in numbers</h3>
+        <ul class="checklist">
+          <li><span>✓</span> 40+ country Workday rollout</li>
+          <li><span>✓</span> £5m budget transformation delivered</li>
+          <li><span>✓</span> 25% reduction in HR service tickets post-launch</li>
+        </ul>
+        <p class="muted">Trusted by enterprises across retail, fintech, and professional services.</p>
+      </div>
+    </section>
+
+    <section class="container" id="case-studies">
+      <div class="grid-3">
+        <article class="card">
+          <span class="badge">Global Retail</span>
+          <h3>Workday HCM transformation</h3>
+          <p>Led multi-year programme establishing a global template across 60k employees. Delivered data remediation, change strategy, and localisation for 18 markets.</p>
+          <p class="muted">Result: unified analytics, +30 point improvement in employee onboarding NPS.</p>
+        </article>
+        <article class="card">
+          <span class="badge">Fintech Scale-up</span>
+          <h3>HRIS stabilisation &amp; optimisation</h3>
+          <p>Embedded fractional HRIT leadership post go-live to stabilise core HR processes, redesign security roles, and implement automated regression testing.</p>
+          <p class="muted">Result: ticket backlog cleared in 4 weeks, governance rituals established.</p>
+        </article>
+        <article class="card">
+          <span class="badge">Professional Services</span>
+          <h3>SuccessFactors implementation</h3>
+          <p>Directed vendor selection, blueprinting, and deployment of SAP SuccessFactors Talent suite integrated with legacy payroll and time solutions.</p>
+          <p class="muted">Result: 100% adoption of performance &amp; goals cycle in first quarter.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="container" id="cta">
+      <div class="contact-card">
+        <h2>Have a programme in flight?</h2>
+        <p>We can step in mid-stream to recover timelines or provide independent assurance. Tell us where support is needed and we’ll tailor an engagement.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="mailto:hello@icarius-consulting.com?subject=Programme%20support">Request support</a>
+          <a class="btn btn-ghost" href="/packages.html">See packages</a>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span class="muted">© <span id="year"></span> Icarius Consulting. All rights reserved.</span>
+      <nav>
+        <a href="/index.html#services">Services</a>
+        <a href="/work.html" aria-current="page">Work</a>
+        <a href="/about.html">About</a>
+        <a href="/packages.html">Packages</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
