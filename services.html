@@ -75,9 +75,48 @@
     .logo-link { display:flex; align-items:center; gap:12px; font-weight:700; letter-spacing:0.02em; }
     .logo-link img { width:32px; height:32px; }
 
-    nav a { margin-left: 20px; font-weight:500; opacity:0.82; transition: opacity 0.2s ease, color 0.2s ease; }
-    nav a:first-child { margin-left:0; }
-    nav a:hover, nav a:focus-visible { opacity:1; color: var(--accent); }
+    .primary-nav { display:flex; align-items:center; gap:1.75rem; }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 1.75rem;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      font-weight: 500;
+      opacity: 0.82;
+      transition: opacity 0.2s ease, color 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible,
+    .nav-links a.active {
+      opacity: 1;
+      color: var(--accent);
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.55rem 1.25rem;
+      border-radius: 999px;
+      background: var(--accent);
+      color: var(--bg);
+      font-weight: 600;
+      box-shadow: 0 12px 32px rgba(24, 194, 181, 0.35);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .cta-button:hover,
+    .cta-button:focus-visible {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 36px rgba(24, 194, 181, 0.4);
+    }
 
     main { padding: 56px 0 120px; }
 
@@ -120,7 +159,16 @@
     }
 
     @media (max-width: 720px) {
-      nav a { margin-left: 14px; }
+      .primary-nav {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 1rem;
+      }
+
+      .nav-links {
+        gap: 1rem;
+      }
+
       .card { padding: 24px; }
     }
   </style>
@@ -132,12 +180,16 @@
         <img src="icarius-logo.svg" alt="Icarius Consulting logo">
         <span>Icarius Consulting</span>
       </a>
-      <nav>
-        <a href="services.html">Services</a>
-        <a href="work.html">Work</a>
-        <a href="about.html">About</a>
-        <a href="packages.html">Packages</a>
-        <a href="index.html#contact">Book a Call</a>
+      <nav class="primary-nav" aria-label="Primary">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html" class="active">Services</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="packages.html">Packages</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <a class="cta-button" href="index.html#contact">Book a Call</a>
       </nav>
     </div>
   </header>
