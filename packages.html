@@ -5,73 +5,125 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Packages — Icarius Consulting</title>
 
-  <!-- Icons (absolute paths + cache-busting) -->
-  <link rel="shortcut icon" href="/favicon.ico?v=2">
-  <link rel="icon" href="/favicon.ico?v=2">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="shortcut icon" href="favicon.ico?v=2">
+  <link rel="icon" href="favicon.ico?v=2">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="manifest.json">
 
-  <!-- PWA -->
-  <link rel="manifest" href="/manifest.json">
-
-  <!-- Social previews -->
   <meta property="og:title" content="Packages — Icarius Consulting" />
   <meta property="og:description" content="HRIT Advisory • Project Management • HR System Audit • HR AI Expertise" />
-  <meta property="og:image" content="/og-image-brand.png" />
+  <meta property="og:image" content="og-image-brand.png" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://icarius-consulting.com/packages.html" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Packages — Icarius Consulting" />
   <meta name="twitter:description" content="HRIT Advisory • Project Management • HR System Audit • HR AI Expertise" />
-  <meta name="twitter:image" content="/og-image-brand.png" />
+  <meta name="twitter:image" content="og-image-brand.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-
-  <style>
-    :root { --bg:#0b101b; --text:#e7ecf3; --muted:#9fb0c3; --brand:#7c5cff; --accent:#18c2b5; --card:#0f1424; }
-    * { box-sizing: border-box; }
-    html, body { margin:0; padding:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color: var(--text); background: var(--bg); }
-    a { color: inherit; text-decoration: none; }
-    .container { width: min(1120px, 92vw); margin: 0 auto; }
-    header { position: sticky; top: 0; background: rgba(11,16,27,0.75); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(255,255,255,0.06); }
-    .nav { display:flex; align-items:center; justify-content:space-between; gap: 20px; padding: 12px 0; }
-    .logo-link { display:flex; align-items:center; gap:10px; font-weight: 800; letter-spacing:.2px; }
-    .logo-link img { width:28px; height:28px; display:block; }
-    header nav a { opacity:.9; margin-left:18px; position:relative; }
-    header nav a:hover { opacity:1; }
-    main { padding: 28px 0 40px; }
-    .hero-logo { display:flex; align-items:center; gap:14px; margin: 12px 0 18px; }
-    .hero-logo img { width:40px; height:40px; }
-    .muted { color: var(--muted); }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
   <header>
-  <div class="container nav">
-    <a href="/index.html#top" class="logo-link" aria-label="Go to Home">
-      <img src="/icarius-logo.svg" alt="Icarius Consulting logo" loading="eager" decoding="async">
-      <span>Icarius Consulting</span>
-    </a>
-    <nav>
-      <a href="/index.html#services">Services</a>
-      <a href="/work.html">Work</a>
-      <a href="/about.html">About</a>
-      <a href="/packages.html">Packages</a>
-      <a href="/index.html#contact">Book a Call</a>
-    </nav>
-  </div>
-</header>
-
-  <main class="container">
-    <div class="hero-logo">
-      <img src="/icarius-logo.svg" alt="Icarius Consulting logo">
-      <h1>Packages</h1>
+    <div class="container nav">
+      <a href="index.html#top" class="logo-link" aria-label="Go to Home">
+        <img src="icarius-logo.svg" alt="Icarius Consulting logo" loading="eager" decoding="async">
+        <span>Icarius Consulting</span>
+      </a>
+      <nav>
+        <a href="index.html#services">Services</a>
+        <a href="work.html">Work</a>
+        <a href="about.html">About</a>
+        <a href="packages.html" aria-current="page">Packages</a>
+        <a href="index.html#contact">Book a Call</a>
+      </nav>
     </div>
-    <p>Content for Packages page</p>
+  </header>
+
+  <main>
+    <section class="container hero" id="packages">
+      <div>
+        <span class="eyebrow">Packages</span>
+        <h1>Flexible engagement models designed around your HR agenda.</h1>
+        <p>Select a package that matches your priorities today, with the freedom to extend or combine services as delivery evolves.</p>
+        <p class="muted">All packages include programme tooling setup, executive-ready reporting, and change enablement assets.</p>
+      </div>
+      <div class="hero-card">
+        <h3>Not sure where to start?</h3>
+        <p>Book a discovery call and we’ll recommend the right package—or create a bespoke engagement that maps to your roadmap.</p>
+        <a class="btn btn-primary" href="mailto:hello@icarius-consulting.com?subject=Packages%20enquiry">Talk to us</a>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="grid-3" id="packagesGrid" aria-live="polite"></div>
+    </section>
+
+    <section class="container" id="inclusions">
+      <span class="eyebrow">What’s included</span>
+      <h2>Every engagement is backed by proven delivery accelerators.</h2>
+      <div class="grid-3">
+        <article class="card">
+          <h3>PMO &amp; Governance</h3>
+          <p>Weekly steering cadence, RAID management, and executive reporting to keep stakeholders aligned and risks visible.</p>
+        </article>
+        <article class="card">
+          <h3>Change &amp; Enablement</h3>
+          <p>Change impact assessments, comms packs, and training plans ensuring adoption across business units.</p>
+        </article>
+        <article class="card">
+          <h3>Technical Assurance</h3>
+          <p>Integration oversight, security role design, and data quality checks anchored in industry best practice.</p>
+        </article>
+      </div>
+    </section>
   </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span class="muted">© <span id="year"></span> Icarius Consulting. All rights reserved.</span>
+      <nav>
+        <a href="index.html#services">Services</a>
+        <a href="work.html">Work</a>
+        <a href="about.html">About</a>
+        <a href="packages.html" aria-current="page">Packages</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    async function renderPackages() {
+      const grid = document.getElementById('packagesGrid');
+      try {
+        const response = await fetch('packages.json');
+        if (!response.ok) throw new Error('Unable to load packages');
+        const packages = await response.json();
+        grid.innerHTML = packages.map(pkg => `
+          <article class="card">
+            <span class="badge">${pkg.badge}</span>
+            <h3>${pkg.price} <span class="muted">${pkg.unit}</span></h3>
+            <p>${pkg.desc}</p>
+            <ul class="checklist">
+              <li><span>✓</span> Programme tooling setup</li>
+              <li><span>✓</span> Executive reporting cadence</li>
+              <li><span>✓</span> Change enablement starter kit</li>
+            </ul>
+            <a class="btn btn-ghost" href="mailto:hello@icarius-consulting.com?subject=${encodeURIComponent(pkg.badge + ' package enquiry')}">Enquire</a>
+          </article>
+        `).join('');
+      } catch (error) {
+        grid.innerHTML = '<p class="muted">Unable to display packages right now. Please email <a href="mailto:hello@icarius-consulting.com">hello@icarius-consulting.com</a>.</p>';
+        console.error(error);
+      }
+    }
+
+    renderPackages();
+  </script>
 </body>
 </html>
