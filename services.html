@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Packages — Icarius Consulting</title>
+  <title>Services — Icarius Consulting</title>
 
   <link rel="shortcut icon" href="/favicon.ico?v=2">
   <link rel="icon" href="/favicon.ico?v=2">
@@ -11,14 +11,14 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="manifest" href="/manifest.json">
 
-  <meta property="og:title" content="Packages — Icarius Consulting" />
+  <meta property="og:title" content="Services — Icarius Consulting" />
   <meta property="og:description" content="HRIT Advisory • Project Management • HR System Audit • HR AI Expertise" />
   <meta property="og:image" content="/og-image-brand.png" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://icarius-consulting.com/packages.html" />
+  <meta property="og:url" content="https://icarius-consulting.com/services.html" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Packages — Icarius Consulting" />
+  <meta name="twitter:title" content="Services — Icarius Consulting" />
   <meta name="twitter:description" content="HRIT Advisory • Project Management • HR System Audit • HR AI Expertise" />
   <meta name="twitter:image" content="/og-image-brand.png" />
 
@@ -46,7 +46,7 @@
       padding: 0;
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
-      background: radial-gradient(circle at top right, rgba(99, 74, 255, 0.32), transparent 58%), var(--bg);
+      background: radial-gradient(circle at top right, rgba(81, 60, 255, 0.25), transparent 55%), var(--bg);
       min-height: 100%;
     }
 
@@ -81,34 +81,34 @@
 
     main { padding: 56px 0 120px; }
 
-    h1 { font-size: clamp(2.2rem, 3.6vw, 3.1rem); margin: 0 0 12px; }
-    p.lead { color: var(--muted); max-width: 660px; line-height: 1.6; font-size: 1.08rem; }
+    h1 { font-size: clamp(2.2rem, 3.8vw, 3.2rem); margin: 0 0 12px; }
+    p.lead { color: var(--muted); max-width: 640px; line-height: 1.6; font-size: 1.08rem; }
 
     section + section { margin-top: 80px; }
 
-    .package-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; }
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
 
-    .package-card {
-      background: linear-gradient(155deg, var(--surface), var(--surface-alt));
+    .card {
+      background: linear-gradient(145deg, var(--surface), var(--surface-alt));
       border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 30px;
+      border-radius: 20px;
+      padding: 32px;
       box-shadow: var(--shadow);
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
     }
 
-    .package-card h2 { margin: 0; font-size: 1.35rem; }
-    .package-card .price { font-size: 1.4rem; font-weight: 700; }
-    .package-card .unit { color: var(--muted); font-size: 0.95rem; }
-    .package-card p { margin: 0; color: var(--muted); line-height: 1.55; }
+    .card h2 { margin: 0 0 12px; font-size: 1.4rem; }
+    .card p { margin: 0 0 16px; color: var(--muted); line-height: 1.6; }
+    .card ul { margin: 0; padding-left: 18px; color: var(--muted); line-height: 1.5; }
 
-    .package-card ul { margin: 12px 0 0; padding-left: 18px; color: var(--muted); line-height: 1.5; }
+    .callout {
+      border-radius: 24px;
+      padding: 32px;
+      border: 1px solid rgba(24, 194, 181, 0.35);
+      background: rgba(24, 194, 181, 0.08);
+      color: var(--text);
+    }
 
-    .note { border-radius: 22px; padding: 32px; border: 1px solid rgba(24, 194, 181, 0.35); background: rgba(24, 194, 181, 0.08); color: var(--text); }
-
-    .note a { color: var(--accent); font-weight: 600; }
+    .callout a { color: var(--accent); font-weight: 600; }
 
     footer {
       margin-top: 120px;
@@ -121,7 +121,7 @@
 
     @media (max-width: 720px) {
       nav a { margin-left: 14px; }
-      .package-card { padding: 24px; }
+      .card { padding: 24px; }
     }
   </style>
 </head>
@@ -144,17 +144,45 @@
 
   <main class="container">
     <section>
-      <h1>Engagement packages</h1>
-      <p class="lead">Choose a package for rapid momentum or combine modules for a bespoke programme. Each option includes clear deliverables, cadence, and outcomes.</p>
+      <h1>Services built for momentum</h1>
+      <p class="lead">Icarius combines strategic advisory, programme delivery, and technical depth to move HR transformation from idea to impact. Partner with us for end-to-end support or targeted accelerators.</p>
     </section>
 
-    <section>
-      <div id="packages" class="package-grid" aria-live="polite"></div>
+    <section class="card-grid" aria-label="Service pillars">
+      <article class="card">
+        <h2>HRIT Advisory</h2>
+        <p>Fractional leadership and roadmap definition grounded in operating reality. We embed with your executive team to chart the right moves.</p>
+        <ul>
+          <li>Vision, strategy, and operating model creation</li>
+          <li>Vendor selection and partner orchestration</li>
+          <li>Data, integration, and AI readiness assessments</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>Programme Delivery</h2>
+        <p>Delivery leadership that keeps the pace. From PMO setup to hypercare, we bring proven rhythms and stakeholder management.</p>
+        <ul>
+          <li>Implementation project management and RAID discipline</li>
+          <li>Change enablement and communications</li>
+          <li>Testing, training, and cutover leadership</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>System Audit & Optimisation</h2>
+        <p>Rapid diagnostics of your HRIS posture with actionable recommendations to improve adoption, compliance, and reporting.</p>
+        <ul>
+          <li>Security, permissions, and compliance reviews</li>
+          <li>Configuration and process optimisation</li>
+          <li>Analytics and dashboard uplift</li>
+        </ul>
+      </article>
     </section>
 
-    <section class="note">
-      <h2>Need something bespoke?</h2>
-      <p>Schedule time via <a href="https://calendly.com/icarius-consulting/discovery-call" target="_blank" rel="noopener">Calendly</a> or email <a href="mailto:hello@icarius-consulting.com">hello@icarius-consulting.com</a> and we’ll shape the right mix of advisory, delivery, and enablement.</p>
+    <section class="callout">
+      <h2>Ready to scope your engagement?</h2>
+      <p>Review the <a href="/packages.html">packages catalogue</a> for sprint-based pricing, or <a href="https://calendly.com/icarius-consulting/discovery-call" target="_blank" rel="noopener">book a call</a> to create something bespoke.</p>
     </section>
   </main>
 
@@ -162,33 +190,10 @@
     <div class="container">&copy; <span id="year"></span> Icarius Consulting. All rights reserved.</div>
   </footer>
 
-  <script type="module">
-    const packagesEl = document.getElementById('packages');
+  <script>
     const yearEl = document.getElementById('year');
-
     if (yearEl) {
       yearEl.textContent = new Date().getFullYear();
-    }
-
-    if (packagesEl) {
-      fetch('/packages.json')
-        .then((response) => {
-          if (!response.ok) throw new Error('Unable to load packages');
-          return response.json();
-        })
-        .then((packages) => {
-          packagesEl.innerHTML = packages.map((pkg) => `
-            <article class="package-card">
-              <h2>${pkg.badge}</h2>
-              <div class="price">${pkg.price} <span class="unit">${pkg.unit}</span></div>
-              <p>${pkg.desc}</p>
-              ${pkg.highlights ? `<ul>${pkg.highlights.map((item) => `<li>${item}</li>`).join('')}</ul>` : ''}
-            </article>
-          `).join('');
-        })
-        .catch(() => {
-          packagesEl.innerHTML = '<p style="color: var(--muted);">Packages are loading. Please refresh if this persists.</p>';
-        });
     }
   </script>
 </body>
