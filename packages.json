@@ -1,5 +1,35 @@
 [
-  { "badge": "Audit", "price": "£2,500", "unit": "/ fixed scope", "desc": "HR System Audit: security, roles, config, reporting. Findings + remediation plan in 2 weeks." },
-  { "badge": "Implementation", "price": "£6,000", "unit": "/ sprint", "desc": "Project Management sprint for implementation or upgrade. PMO setup, RAID, vendor orchestration." },
-  { "badge": "Fractional", "price": "£3,500", "unit": "/ month", "desc": "1–2 days/week HRIT advisory & delivery leadership, OKRs and cadence." }
+  {
+    "badge": "Audit",
+    "price": "£2,500",
+    "unit": "/ fixed scope",
+    "desc": "HR System Audit: security, roles, config, reporting. Findings + remediation plan in 2 weeks.",
+    "highlights": [
+      "Stakeholder interviews and configuration review",
+      "Security, permissions, and compliance testing",
+      "Prioritised roadmap with quick wins and strategic moves"
+    ]
+  },
+  {
+    "badge": "Implementation",
+    "price": "£6,000",
+    "unit": "/ sprint",
+    "desc": "Project Management sprint for implementation or upgrade. PMO setup, RAID, vendor orchestration.",
+    "highlights": [
+      "Weekly governance, RAID, and steering packs",
+      "Change, testing, and cutover leadership",
+      "Hypercare and transition-to-run support"
+    ]
+  },
+  {
+    "badge": "Fractional",
+    "price": "£3,500",
+    "unit": "/ month",
+    "desc": "1–2 days/week HRIT advisory & delivery leadership, OKRs and cadence.",
+    "highlights": [
+      "Roadmap ownership and OKR alignment",
+      "Executive-ready communications and board updates",
+      "Capability uplift for internal HRIT teams"
+    ]
+  }
 ]

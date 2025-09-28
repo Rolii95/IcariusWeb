@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About — Icarius Consulting</title>
+  <title>Services — Icarius Consulting</title>
 
   <link rel="shortcut icon" href="favicon.ico?v=2">
   <link rel="icon" href="favicon.ico?v=2">
@@ -11,14 +11,14 @@
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="manifest" href="manifest.json">
 
-  <meta property="og:title" content="About — Icarius Consulting" />
+  <meta property="og:title" content="Services — Icarius Consulting" />
   <meta property="og:description" content="HRIT Advisory • Project Management • HR System Audit • HR AI Expertise" />
   <meta property="og:image" content="og-image-brand.png" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://icarius-consulting.com/about.html" />
+  <meta property="og:url" content="https://icarius-consulting.com/services.html" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="About — Icarius Consulting" />
+  <meta name="twitter:title" content="Services — Icarius Consulting" />
   <meta name="twitter:description" content="HRIT Advisory • Project Management • HR System Audit • HR AI Expertise" />
   <meta name="twitter:image" content="og-image-brand.png" />
 
@@ -46,7 +46,7 @@
       padding: 0;
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
-      background: radial-gradient(circle at top, rgba(30, 61, 112, 0.28), transparent 55%), var(--bg);
+      background: radial-gradient(circle at top right, rgba(81, 60, 255, 0.25), transparent 55%), var(--bg);
       min-height: 100%;
     }
 
@@ -81,32 +81,34 @@
 
     main { padding: 56px 0 120px; }
 
-    h1 { font-size: clamp(2.2rem, 3.6vw, 3.2rem); margin: 0 0 18px; }
-    p.lead { color: var(--muted); max-width: 680px; line-height: 1.6; font-size: 1.08rem; }
+    h1 { font-size: clamp(2.2rem, 3.8vw, 3.2rem); margin: 0 0 12px; }
+    p.lead { color: var(--muted); max-width: 640px; line-height: 1.6; font-size: 1.08rem; }
 
     section + section { margin-top: 80px; }
 
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; }
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
 
     .card {
-      background: linear-gradient(150deg, var(--surface), var(--surface-alt));
+      background: linear-gradient(145deg, var(--surface), var(--surface-alt));
       border: 1px solid var(--border);
-      border-radius: 22px;
+      border-radius: 20px;
       padding: 32px;
       box-shadow: var(--shadow);
     }
 
-    .card h2 { margin: 0 0 12px; font-size: 1.35rem; }
+    .card h2 { margin: 0 0 12px; font-size: 1.4rem; }
     .card p { margin: 0 0 16px; color: var(--muted); line-height: 1.6; }
     .card ul { margin: 0; padding-left: 18px; color: var(--muted); line-height: 1.5; }
 
-    .quote {
-      border-left: 4px solid var(--accent);
-      padding-left: 18px;
-      margin: 24px 0 0;
-      color: var(--muted);
-      font-style: italic;
+    .callout {
+      border-radius: 24px;
+      padding: 32px;
+      border: 1px solid rgba(24, 194, 181, 0.35);
+      background: rgba(24, 194, 181, 0.08);
+      color: var(--text);
     }
+
+    .callout a { color: var(--accent); font-weight: 600; }
 
     footer {
       margin-top: 120px;
@@ -142,41 +144,45 @@
 
   <main class="container">
     <section>
-      <h1>About Icarius</h1>
-      <p class="lead">Icarius Consulting is a collective of HR technologists, programme leaders, and change specialists. We believe HR systems should feel human and deliver measurable business value.</p>
-      <div class="quote">“Technology is only transformative when people are empowered to use it. We meet your teams where they are and build momentum together.”</div>
+      <h1>Services built for momentum</h1>
+      <p class="lead">Icarius combines strategic advisory, programme delivery, and technical depth to move HR transformation from idea to impact. Partner with us for end-to-end support or targeted accelerators.</p>
     </section>
 
-    <section class="grid" aria-label="Our principles">
+    <section class="card-grid" aria-label="Service pillars">
       <article class="card">
-        <h2>Human-first delivery</h2>
-        <p>Every project starts with the employee experience. We design journeys, communications, and training that resonate.</p>
+        <h2>HRIT Advisory</h2>
+        <p>Fractional leadership and roadmap definition grounded in operating reality. We embed with your executive team to chart the right moves.</p>
         <ul>
-          <li>Co-design workshops with HR, IT, and end users</li>
-          <li>Enablement plans that reduce support overhead</li>
-          <li>Inclusive change activities across regions</li>
+          <li>Vision, strategy, and operating model creation</li>
+          <li>Vendor selection and partner orchestration</li>
+          <li>Data, integration, and AI readiness assessments</li>
         </ul>
       </article>
 
       <article class="card">
-        <h2>Data-rich decisions</h2>
-        <p>We activate analytics, AI, and automation responsibly to help leaders move faster with confidence.</p>
+        <h2>Programme Delivery</h2>
+        <p>Delivery leadership that keeps the pace. From PMO setup to hypercare, we bring proven rhythms and stakeholder management.</p>
         <ul>
-          <li>Insight-driven roadmaps and prioritisation</li>
-          <li>Secure data models and governance frameworks</li>
-          <li>Dashboards that blend HR, finance, and CX signals</li>
+          <li>Implementation project management and RAID discipline</li>
+          <li>Change enablement and communications</li>
+          <li>Testing, training, and cutover leadership</li>
         </ul>
       </article>
 
       <article class="card">
-        <h2>Built-in enablement</h2>
-        <p>We leave teams stronger than we found them by sharing our playbooks, templates, and rituals.</p>
+        <h2>System Audit & Optimisation</h2>
+        <p>Rapid diagnostics of your HRIS posture with actionable recommendations to improve adoption, compliance, and reporting.</p>
         <ul>
-          <li>Embedded delivery coaching</li>
-          <li>Reusable templates and runbooks</li>
-          <li>Capability uplift for HRIT, PMO, and analytics teams</li>
+          <li>Security, permissions, and compliance reviews</li>
+          <li>Configuration and process optimisation</li>
+          <li>Analytics and dashboard uplift</li>
         </ul>
       </article>
+    </section>
+
+    <section class="callout">
+      <h2>Ready to scope your engagement?</h2>
+      <p>Review the <a href="packages.html">packages catalogue</a> for sprint-based pricing, or <a href="https://calendly.com/icarius-consulting/discovery-call" target="_blank" rel="noopener">book a call</a> to create something bespoke.</p>
     </section>
   </main>
 
