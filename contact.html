@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — Icarius Consulting</title>
+
+  <!-- Icons (relative paths for subdirectory support) -->
+  <link href="favicon.ico?v=2" rel="shortcut icon"/>
+  <link rel="icon" href="favicon.ico?v=2">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="manifest.json">
+
+  <meta property="og:title" content="Contact — Icarius Consulting" />
+  <meta property="og:description" content="Get in touch with Icarius Consulting for HRIT advisory, project management, and AI-driven HR solutions." />
+  <meta property="og:image" content="og-image-brand.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://icarius-consulting.com/contact.html" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contact — Icarius Consulting" />
+  <meta name="twitter:description" content="Partner with Icarius Consulting to accelerate your HR transformation." />
+  <meta name="twitter:image" content="og-image-brand.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #070a12;
+      --surface: #0d1424;
+      --surface-alt: #10192c;
+      --text: #ecf2ff;
+      --muted: #95a8c5;
+      --brand: #7c5cff;
+      --accent: #18c2b5;
+      --border: rgba(255, 255, 255, 0.08);
+      --error: #ff6b6b;
+      --success: #39d98a;
+      --shadow: 0 24px 64px rgba(8, 14, 27, 0.55);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(13, 20, 36, 0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      padding: 1rem 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+
+    .logo img {
+      width: 32px;
+      height: 32px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text);
+    }
+
+    main {
+      margin-top: 5rem;
+      padding: 4rem 0 6rem;
+    }
+
+    .hero {
+      display: grid;
+      gap: 1.5rem;
+      padding: 4rem 0;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 3.75rem);
+      font-weight: 800;
+      margin: 0;
+      background: linear-gradient(135deg, var(--brand), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--muted);
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--brand), var(--accent));
+      color: white;
+      text-decoration: none;
+      padding: 0.9rem 2rem;
+      border-radius: 0.75rem;
+      font-weight: 600;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 18px 40px rgba(15, 46, 83, 0.35);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .form-section {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 3rem;
+      margin-top: 3rem;
+      align-items: start;
+    }
+
+    .form-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 1.5rem;
+      padding: 2.5rem;
+      box-shadow: var(--shadow);
+    }
+
+    form {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .field {
+      display: grid;
+      gap: 0.5rem;
+    }
+
+    label {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    input,
+    textarea {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.9rem 1rem;
+      border-radius: 0.75rem;
+      font-size: 1rem;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      font-family: inherit;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(24, 194, 181, 0.15);
+    }
+
+    .field.error input,
+    .field.error textarea {
+      border-color: var(--error);
+      box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2);
+    }
+
+    .error-message {
+      color: var(--error);
+      font-size: 0.85rem;
+      display: none;
+    }
+
+    .field.error .error-message {
+      display: block;
+    }
+
+    .form-note {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .form-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .form-actions button {
+      border: none;
+      cursor: pointer;
+    }
+
+    .status-message {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .status-message.success {
+      color: var(--success);
+    }
+
+    .status-message.error {
+      color: var(--error);
+    }
+
+    .calendly-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 3rem 0;
+      background: rgba(7, 10, 18, 0.9);
+      margin-top: 6rem;
+    }
+
+    footer .footer-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 960px) {
+      .form-section {
+        grid-template-columns: 1fr;
+      }
+
+      .form-card,
+      .calendly-card {
+        padding: 2rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 0 1.25rem;
+      }
+
+      header {
+        padding: 0.75rem 0;
+      }
+
+      .nav-links {
+        gap: 1rem;
+        font-size: 0.9rem;
+      }
+
+      .hero {
+        padding: 3rem 0;
+      }
+
+      .hero p {
+        font-size: 1.05rem;
+      }
+
+      .form-card,
+      .calendly-card {
+        padding: 1.5rem;
+      }
+
+      input,
+      textarea {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo">
+          <img src="icarius-logo.svg" alt="Icarius Consulting logo">
+          Icarius Consulting
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="packages.html">Packages</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <h1>Let’s build a resilient people platform together</h1>
+        <p>Reach the Icarius Consulting team directly to discuss your HRIT roadmap, accelerate critical projects, or explore how AI can unlock better employee experiences.</p>
+        <div class="hero-actions">
+          <a class="btn" href="mailto:contact@icarius-consulting.com">Email contact@icarius-consulting.com</a>
+        </div>
+      </section>
+
+      <section class="form-section">
+        <div class="form-card">
+          <h2>Share a few details</h2>
+          <p class="form-note">We’ll respond within one business day. Required fields are marked with *</p>
+          <form id="contact-form" action="https://formsubmit.co/contact@icarius-consulting.com" method="POST" novalidate>
+            <div class="field" data-field="name">
+              <label for="name">Full name *</label>
+              <input id="name" name="name" type="text" autocomplete="name" required>
+              <span class="error-message">Please tell us your name.</span>
+            </div>
+            <div class="field" data-field="email">
+              <label for="email">Work email *</label>
+              <input id="email" name="email" type="email" inputmode="email" autocomplete="email" required>
+              <span class="error-message">Enter a valid work email address.</span>
+            </div>
+            <div class="field" data-field="company">
+              <label for="company">Company</label>
+              <input id="company" name="company" type="text" autocomplete="organization">
+            </div>
+            <div class="field" data-field="message">
+              <label for="message">How can we help? *</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+              <span class="error-message">Please share a little about your needs.</span>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn">Send message</button>
+              <span id="status-message" class="status-message" role="status" aria-live="polite"></span>
+            </div>
+          </form>
+        </div>
+        <div class="calendly-card">
+          <h2>Book a discovery call</h2>
+          <p class="form-note">Prefer to talk live? Grab time that works for you below.</p>
+          <div class="calendly-inline-widget" data-url="https://calendly.com/icarius-consulting/introduction-call" style="min-width:320px;height:630px;"></div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <div>© <span id="year"></span> Icarius Consulting. All rights reserved.</div>
+      <div>HRIT Advisory • Project Management • HR System Audit • HR AI Expertise</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const form = document.getElementById('contact-form');
+    const statusMessage = document.getElementById('status-message');
+    const requiredFields = ['name', 'email', 'message'];
+
+    function validateEmail(value) {
+      return /[^@\s]+@[^@\s]+\.[^@\s]+/.test(value);
+    }
+
+    function clearStatus() {
+      statusMessage.textContent = '';
+      statusMessage.className = 'status-message';
+    }
+
+    form.addEventListener('input', (event) => {
+      const fieldWrapper = event.target.closest('.field');
+      if (!fieldWrapper) return;
+      fieldWrapper.classList.remove('error');
+      clearStatus();
+    });
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      clearStatus();
+
+      let isValid = true;
+
+      requiredFields.forEach((fieldName) => {
+        const field = form.elements[fieldName];
+        const wrapper = field.closest('.field');
+        const value = field.value.trim();
+
+        if (!value || (fieldName === 'email' && !validateEmail(value))) {
+          wrapper.classList.add('error');
+          isValid = false;
+        } else {
+          wrapper.classList.remove('error');
+        }
+      });
+
+      if (!isValid) {
+        statusMessage.textContent = 'Please correct the highlighted fields.';
+        statusMessage.classList.add('error');
+        return;
+      }
+
+      statusMessage.textContent = 'Sending…';
+
+      const formData = new FormData(form);
+      const payload = Object.fromEntries(formData.entries());
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+
+        statusMessage.textContent = 'Thanks! We’ll be in touch shortly.';
+        statusMessage.classList.add('success');
+        form.reset();
+      } catch (error) {
+        const mailBody = `Name: ${payload.name || ''}\nEmail: ${payload.email || ''}\nCompany: ${payload.company || ''}\n\nMessage:\n${payload.message || ''}`;
+        window.location.href = `mailto:contact@icarius-consulting.com?subject=Icarius%20Consulting%20Inquiry&body=${encodeURIComponent(mailBody)}`;
+        statusMessage.textContent = 'Launching your email client… if nothing happens, reach us at contact@icarius-consulting.com.';
+        statusMessage.classList.add('error');
+      }
+    });
+  </script>
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+</body>
+</html>
