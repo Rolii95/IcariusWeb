@@ -1,1 +1,124 @@
-<!-- custom branded 404.html with logo + return home -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Page Not Found — Icarius Consulting</title>
+  <link rel="shortcut icon" href="favicon.ico?v=2">
+  <link rel="icon" href="favicon.ico?v=2">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="manifest.json">
+  <meta property="og:title" content="Page Not Found — Icarius Consulting" />
+  <meta property="og:description" content="The page you are looking for might have been moved." />
+  <meta property="og:image" content="og-image-brand.png" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Page Not Found — Icarius Consulting" />
+  <meta name="twitter:description" content="The page you are looking for might have been moved." />
+  <meta name="twitter:image" content="og-image-brand.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="chatbot.css">
+  <style>
+    body {
+      background: radial-gradient(circle at top, rgba(124, 92, 255, 0.16), transparent 55%), #070a12;
+      color: #ecf2ff;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .error-wrapper {
+      max-width: 540px;
+      background: rgba(13, 20, 36, 0.8);
+      border-radius: 1.25rem;
+      padding: 2.5rem;
+      box-shadow: 0 24px 64px rgba(8, 14, 27, 0.55);
+      text-align: center;
+    }
+
+    .error-wrapper img {
+      height: 64px;
+      margin-bottom: 1.5rem;
+    }
+
+    .error-wrapper h1 {
+      font-size: 2.25rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .error-wrapper p {
+      color: #a5b4d5;
+      font-size: 1rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .error-wrapper a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.75rem;
+      border-radius: 9999px;
+      background: #6366f1;
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .error-wrapper a:hover,
+    .error-wrapper a:focus-visible {
+      background: #4f46e5;
+    }
+  </style>
+</head>
+<body>
+  <div class="error-wrapper">
+    <img src="icarius-logo.svg" alt="Icarius Consulting" />
+    <h1>Page not found</h1>
+    <p>The page you are trying to reach doesn’t exist or may have moved. Let’s get you back on track.</p>
+    <a href="index.html">Return home</a>
+  </div>
+
+  <button class="chatbot-toggle" type="button" aria-expanded="false" aria-controls="chatbot-panel" aria-label="Open Icarius chatbot">
+    💬
+  </button>
+  <div class="chatbot-panel" id="chatbot-panel" hidden role="dialog" aria-modal="true" aria-labelledby="chatbot-title">
+    <div class="chatbot-header">
+      <h2 id="chatbot-title">Icarius Assistant</h2>
+      <button class="chatbot-close" type="button" data-chatbot-close aria-label="Close chatbot">&times;</button>
+    </div>
+    <div class="chatbot-body">
+      <div class="chatbot-messages" data-chatbot-messages role="log" aria-live="polite"></div>
+      <div class="chatbot-quick-replies">
+        <button type="button" data-chatbot-reply="overview">What does Icarius do?</button>
+        <button type="button" data-chatbot-reply="services">Which services do you offer?</button>
+        <button type="button" data-chatbot-reply="process">How does engagement work?</button>
+      </div>
+    </div>
+    <form class="chatbot-form" novalidate>
+      <p class="chatbot-status" data-chatbot-status role="status" aria-live="polite"></p>
+      <label for="chatbot-name">Name</label>
+      <input id="chatbot-name" name="name" type="text" autocomplete="name" required />
+      <label for="chatbot-email">Email</label>
+      <input id="chatbot-email" name="email" type="email" autocomplete="email" required />
+      <label for="chatbot-company">Company (optional)</label>
+      <input id="chatbot-company" name="company" type="text" autocomplete="organization" />
+      <label for="chatbot-message">How can we help?</label>
+      <textarea id="chatbot-message" name="message" rows="3" required></textarea>
+      <button type="submit">
+        <span>Send to Icarius</span>
+        <span class="chatbot-spinner" data-chatbot-spinner aria-hidden="true"></span>
+      </button>
+    </form>
+  </div>
+  <script src="chatbot.js" defer></script>
+</body>
+</html>
