@@ -30,6 +30,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="chatbot.css">
 
   <style>
     :root {
@@ -377,6 +378,39 @@
     </div>
   </footer>
 
+  <button class="chatbot-toggle" type="button" aria-expanded="false" aria-controls="chatbot-panel" aria-label="Open Icarius chatbot">
+    💬
+  </button>
+  <div class="chatbot-panel" id="chatbot-panel" hidden role="dialog" aria-modal="true" aria-labelledby="chatbot-title">
+    <div class="chatbot-header">
+      <h2 id="chatbot-title">Icarius Assistant</h2>
+      <button class="chatbot-close" type="button" data-chatbot-close aria-label="Close chatbot">&times;</button>
+    </div>
+    <div class="chatbot-body">
+      <div class="chatbot-messages" data-chatbot-messages role="log" aria-live="polite"></div>
+      <div class="chatbot-quick-replies">
+        <button type="button" data-chatbot-reply="overview">What does Icarius do?</button>
+        <button type="button" data-chatbot-reply="services">Which services do you offer?</button>
+        <button type="button" data-chatbot-reply="process">How does engagement work?</button>
+      </div>
+    </div>
+    <form class="chatbot-form" novalidate>
+      <p class="chatbot-status" data-chatbot-status role="status" aria-live="polite"></p>
+      <label for="chatbot-name">Name</label>
+      <input id="chatbot-name" name="name" type="text" autocomplete="name" required />
+      <label for="chatbot-email">Email</label>
+      <input id="chatbot-email" name="email" type="email" autocomplete="email" required />
+      <label for="chatbot-company">Company (optional)</label>
+      <input id="chatbot-company" name="company" type="text" autocomplete="organization" />
+      <label for="chatbot-message">How can we help?</label>
+      <textarea id="chatbot-message" name="message" rows="3" required></textarea>
+      <button type="submit">
+        <span>Send to Icarius</span>
+        <span class="chatbot-spinner" data-chatbot-spinner aria-hidden="true"></span>
+      </button>
+    </form>
+  </div>
+  <script src="chatbot.js" defer></script>
   <script src="https://assets.calendly.com/assets/external/widget.js"></script>
 </body>
 </html>
