@@ -5,14 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Packages — Icarius Consulting</title>
 
-  <!-- Icons (root-relative paths + cache-busting) -->
-  <link rel="shortcut icon" href="/favicon.ico?v=2">
-  <link rel="icon" href="/favicon.ico?v=2">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-
-  <!-- PWA -->
-  <link rel="manifest" href="/manifest.json">
+  <!-- Icons (relative paths for subdirectory support) -->
+  <link href="favicon.ico?v=2" rel="shortcut icon"/>
+  <link rel="icon" href="favicon.ico?v=2">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="manifest.json">
 
   <meta property="og:title" content="Packages — Icarius Consulting" />
   <meta property="og:description" content="HRIT Advisory • Project Management • HR System Audit • HR AI Expertise" />
@@ -28,26 +26,337 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css">
+
+  <style>
+    :root {
+      --bg: #070a12;
+      --surface: #0d1424;
+      --surface-alt: #10192c;
+      --text: #ecf2ff;
+      --muted: #95a8c5;
+      --brand: #7c5cff;
+      --accent: #18c2b5;
+      --border: rgba(255, 255, 255, 0.08);
+      --shadow: 0 24px 64px rgba(8, 14, 27, 0.55);
+    }
+
+    * { box-sizing: border-box; }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(13, 20, 36, 0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      padding: 1rem 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+
+    .logo img {
+      width: 32px;
+      height: 32px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text);
+    }
+
+    main {
+      margin-top: 5rem;
+      padding: 4rem 0;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 4rem 0;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin: 0 0 1rem 0;
+      background: linear-gradient(135deg, var(--brand), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .packages {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin: 4rem 0;
+    }
+
+    .package-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .package-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .package-card.featured {
+      border-color: var(--brand);
+      position: relative;
+    }
+
+    .package-card.featured::before {
+      content: 'Most Popular';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, var(--brand), var(--accent));
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 1rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
+    .package-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .package-name {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--brand);
+    }
+
+    .package-price {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+
+    .package-duration {
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+
+    .package-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 2rem 0;
+    }
+
+    .package-features li {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .package-features li:last-child {
+      border-bottom: none;
+    }
+
+    .feature-icon {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      background: linear-gradient(135deg, var(--brand), var(--accent));
+      color: white;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(124, 92, 255, 0.3);
+    }
+
+    .btn-secondary {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
+    }
+
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .container {
+        padding: 0 1rem;
+      }
+      
+      .packages {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
+
 <body>
   <header>
-    <div class="container nav">
-      <a href="index.html#top" class="logo-link" aria-label="Go to Home">
-        <img src="/icarius-logo.svg" alt="Icarius Consulting logo" loading="eager" decoding="async">
-        <span>Icarius Consulting</span>
-      </a>
+    <div class="container">
       <nav>
-        <a href="index.html#services">Services</a>
-        <a href="work.html">Work</a>
-        <a href="about.html">About</a>
-        <a href="packages.html">Packages</a>
-        <a href="index.html#contact">Book a Call</a>
+        <a href="index.html" class="logo">
+          <img src="logo.svg" alt="Icarius Consulting">
+          Icarius
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="packages.html" class="active">Packages</a></li>
+        </ul>
       </nav>
     </div>
   </header>
 
-  <main class="container">
-    <div class="hero-logo">
-      <img src="/icarius-logo.svg" alt="Icarius Consulting logo">
-      <h1>Packages</h1>
+  <main>
+    <div class="container">
+      <section class="hero">
+        <h1>Service Packages</h1>
+        <p>Choose the right consulting package for your HR technology transformation needs.</p>
+      </section>
+
+      <div class="packages">
+        <div class="package-card">
+          <div class="package-header">
+            <h2 class="package-name">Strategic Advisory</h2>
+            <div class="package-price">$2,500</div>
+            <div class="package-duration">per month</div>
+          </div>
+          <ul class="package-features">
+            <li><span class="feature-icon">✓</span> Monthly strategic planning sessions</li>
+            <li><span class="feature-icon">✓</span> Technology roadmap development</li>
+            <li><span class="feature-icon">✓</span> Vendor assessment and selection</li>
+            <li><span class="feature-icon">✓</span> Email and phone support</li>
+          </ul>
+          <a href="about.html" class="btn btn-secondary">Get Started</a>
+        </div>
+
+        <div class="package-card featured">
+          <div class="package-header">
+            <h2 class="package-name">Full Implementation</h2>
+            <div class="package-price">$5,000</div>
+            <div class="package-duration">per month</div>
+          </div>
+          <ul class="package-features">
+            <li><span class="feature-icon">✓</span> End-to-end project management</li>
+            <li><span class="feature-icon">✓</span> System configuration and setup</li>
+            <li><span class="feature-icon">✓</span> Data migration and integration</li>
+            <li><span class="feature-icon">✓</span> Training and change management</li>
+            <li><span class="feature-icon">✓</span> Priority support and maintenance</li>
+          </ul>
+          <a href="about.html" class="btn">Get Started</a>
+        </div>
+
+        <div class="package-card">
+          <div class="package-header">
+            <h2 class="package-name">System Audit</h2>
+            <div class="package-price">$3,500</div>
+            <div class="package-duration">one-time</div>
+          </div>
+          <ul class="package-features">
+            <li><span class="feature-icon">✓</span> Comprehensive system review</li>
+            <li><span class="feature-icon">✓</span> Performance optimization recommendations</li>
+            <li><span class="feature-icon">✓</span> Security and compliance assessment</li>
+            <li><span class="feature-icon">✓</span> Detailed findings report</li>
+          </ul>
+          <a href="about.html" class="btn btn-secondary">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Icarius Consulting. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

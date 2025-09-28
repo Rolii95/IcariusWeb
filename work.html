@@ -5,14 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Work — Icarius Consulting</title>
 
-  <!-- Icons (root-relative paths + cache-busting) -->
-  <link rel="shortcut icon" href="/favicon.ico?v=2">
-  <link rel="icon" href="/favicon.ico?v=2">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-
-  <!-- PWA -->
-  <link rel="manifest" href="/manifest.json">
+  <!-- Icons (relative paths for subdirectory support) -->
+  <link href="favicon.ico?v=2" rel="shortcut icon"/>
+  <link rel="icon" href="favicon.ico?v=2">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="manifest.json">
 
   <meta property="og:title" content="Work — Icarius Consulting" />
   <meta property="og:description" content="HRIT Advisory • Project Management • HR System Audit • HR AI Expertise" />
@@ -28,19 +26,356 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css">
+
+  <style>
+    :root {
+      --bg: #070a12;
+      --surface: #0d1424;
+      --surface-alt: #10192c;
+      --text: #ecf2ff;
+      --muted: #95a8c5;
+      --brand: #7c5cff;
+      --accent: #18c2b5;
+      --border: rgba(255, 255, 255, 0.08);
+      --shadow: 0 24px 64px rgba(8, 14, 27, 0.55);
+    }
+
+    * { box-sizing: border-box; }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(13, 20, 36, 0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      padding: 1rem 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+
+    .logo img {
+      width: 32px;
+      height: 32px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text);
+    }
+
+    main {
+      margin-top: 5rem;
+      padding: 4rem 0;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 4rem 0;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin: 0 0 1rem 0;
+      background: linear-gradient(135deg, var(--brand), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 4rem 0;
+    }
+
+    .section h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .project-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--brand), var(--accent));
+      border-radius: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+    }
+
+    .project-card h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin: 0;
+      color: var(--brand);
+    }
+
+    .project-meta {
+      color: var(--muted);
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .tag {
+      background: var(--surface-alt);
+      color: var(--text);
+      padding: 0.25rem 0.75rem;
+      border-radius: 1rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+
+    .cta {
+      text-align: center;
+      padding: 4rem 0;
+    }
+
+    .btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--brand), var(--accent));
+      color: white;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(124, 92, 255, 0.3);
+    }
+
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .container {
+        padding: 0 1rem;
+      }
+      
+      .projects {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
+
 <body>
   <header>
-    <div class="container nav">
-      <a href="index.html#top" class="logo-link" aria-label="Go to Home">
-        <img src="/icarius-logo.svg" alt="Icarius Consulting logo" loading="eager" decoding="async">
-        <span>Icarius Consulting</span>
-      </a>
+    <div class="container">
       <nav>
-        <a href="index.html#services">Services</a>
-        <a href="work.html">Work</a>
-        <a href="about.html">About</a>
-        <a href="packages.html">Packages</a>
-        <a href="index.html#contact">Book a Call</a>
+        <a href="index.html" class="logo">
+          <img src="logo.svg" alt="Icarius Consulting">
+          Icarius
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="work.html" class="active">Work</a></li>
+          <li><a href="packages.html">Packages</a></li>
+        </ul>
       </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <h1>Our Work</h1>
+        <p>Explore our successful HR technology transformations and consulting projects across diverse organizations.</p>
+      </section>
+
+      <section class="section">
+        <h2>Featured Projects</h2>
+        <div class="projects">
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-icon">🏢</div>
+              <div>
+                <h3>Global Manufacturing HR Overhaul</h3>
+                <div class="project-meta">Fortune 500 Company • 12 Months</div>
+              </div>
+            </div>
+            <p>Led comprehensive HR system modernization for a 50,000+ employee manufacturing corporation, implementing integrated HRIS, talent management, and analytics platforms.</p>
+            <div class="project-tags">
+              <span class="tag">System Integration</span>
+              <span class="tag">Change Management</span>
+              <span class="tag">Data Migration</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-icon">🏥</div>
+              <div>
+                <h3>Healthcare System AI Implementation</h3>
+                <div class="project-meta">Regional Healthcare Network • 8 Months</div>
+              </div>
+            </div>
+            <p>Deployed AI-powered recruitment and performance analytics across 15 hospitals, reducing time-to-hire by 40% and improving employee retention rates.</p>
+            <div class="project-tags">
+              <span class="tag">AI & ML</span>
+              <span class="tag">Analytics</span>
+              <span class="tag">Process Optimization</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-icon">💼</div>
+              <div>
+                <h3>Financial Services Digital Transformation</h3>
+                <div class="project-meta">Investment Bank • 10 Months</div>
+              </div>
+            </div>
+            <p>Architected cloud-based HR ecosystem for investment banking firm, ensuring regulatory compliance while enabling remote workforce management.</p>
+            <div class="project-tags">
+              <span class="tag">Cloud Migration</span>
+              <span class="tag">Compliance</span>
+              <span class="tag">Security</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-icon">🚀</div>
+              <div>
+                <h3>Tech Startup HR Foundation</h3>
+                <div class="project-meta">Series B Startup • 4 Months</div>
+              </div>
+            </div>
+            <p>Built scalable HR infrastructure from ground up for rapidly growing tech startup, establishing processes for 500+ employee expansion.</p>
+            <div class="project-tags">
+              <span class="tag">Startup Advisory</span>
+              <span class="tag">Scalability</span>
+              <span class="tag">Process Design</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta">
+        <h2>Ready to Start Your Project?</h2>
+        <p>Let's discuss how we can transform your HR technology landscape.</p>
+        <a href="packages.html" class="btn">View Our Packages</a>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Icarius Consulting. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
