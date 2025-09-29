@@ -202,6 +202,192 @@
       flex-wrap: wrap;
     }
 
+    .dashboard-preview {
+      padding: 5rem 0;
+    }
+
+    .dashboard-preview-header {
+      max-width: 720px;
+      margin: 0 auto 2.5rem;
+      text-align: center;
+    }
+
+    .dashboard-preview-header h2 {
+      font-size: 2.75rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .dashboard-preview-header p {
+      color: var(--muted);
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    .dashboard-surface {
+      position: relative;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 1.5rem;
+      padding: 2.5rem;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .dashboard-surface::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(150deg, rgba(124, 92, 255, 0.18), rgba(24, 194, 181, 0.12));
+      opacity: 0.85;
+      pointer-events: none;
+    }
+
+    .dashboard-surface > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .dashboard-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding-bottom: 1.75rem;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .dashboard-toolbar-left {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .toolbar-dots {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .toolbar-dot {
+      width: 0.75rem;
+      height: 0.75rem;
+      border-radius: 999px;
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+    }
+
+    .toolbar-dot:nth-child(1) {
+      background: var(--accent);
+    }
+
+    .toolbar-dot:nth-child(2) {
+      background: var(--brand);
+    }
+
+    .toolbar-dot:nth-child(3) {
+      background: rgba(236, 242, 255, 0.4);
+    }
+
+    .toolbar-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .toolbar-heading {
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .toolbar-subheading {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .dashboard-toolbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .toolbar-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.4rem 0.85rem;
+      border-radius: 999px;
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.85rem;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .toolbar-pill.is-active {
+      background: rgba(124, 92, 255, 0.24);
+      color: var(--text);
+      border-color: rgba(124, 92, 255, 0.5);
+    }
+
+    .dashboard-kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .kpi-card {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .kpi-label {
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .kpi-value {
+      font-size: 2.25rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .kpi-trend {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .kpi-trend span {
+      font-size: 1rem;
+    }
+
+    .kpi-trend.positive {
+      color: var(--accent);
+    }
+
+    .kpi-trend.steady {
+      color: var(--brand);
+    }
+
+    .kpi-meta {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
     .btn {
       display: inline-block;
       padding: 1rem 2rem;
@@ -323,6 +509,27 @@
         flex-direction: column;
         align-items: center;
       }
+
+      .dashboard-preview {
+        padding: 4rem 0;
+      }
+
+      .dashboard-surface {
+        padding: 2rem;
+      }
+
+      .dashboard-toolbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .dashboard-toolbar-actions {
+        width: 100%;
+      }
+
+      .dashboard-kpi-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      }
     }
   </style>
 </head>
@@ -356,6 +563,66 @@
           <div class="cta-buttons">
             <a href="packages.html" class="btn btn-primary">View Packages</a>
             <a href="about.html" class="btn btn-secondary">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dashboard-preview" aria-labelledby="dashboard-preview-title">
+      <div class="container">
+        <div class="dashboard-preview-header">
+          <h2 id="dashboard-preview-title">See the Icarius delivery cockpit</h2>
+          <p>A unified dashboard that keeps transformation workstreams aligned, measurable, and transparent for every stakeholder.</p>
+        </div>
+
+        <div class="dashboard-surface" role="group" aria-label="Key performance indicators">
+          <div class="dashboard-toolbar">
+            <div class="dashboard-toolbar-left">
+              <div class="toolbar-dots" aria-hidden="true">
+                <span class="toolbar-dot"></span>
+                <span class="toolbar-dot"></span>
+                <span class="toolbar-dot"></span>
+              </div>
+              <div class="toolbar-text">
+                <span class="toolbar-heading">Engagement pulse</span>
+                <span class="toolbar-subheading">Synced 5 minutes ago • Icarius PMO</span>
+              </div>
+            </div>
+            <div class="dashboard-toolbar-actions">
+              <span class="toolbar-pill is-active">Q2 FY24</span>
+              <span class="toolbar-pill">All workstreams</span>
+              <span class="toolbar-pill">Auto-refresh</span>
+            </div>
+          </div>
+
+          <div class="dashboard-kpi-grid">
+            <article class="kpi-card">
+              <p class="kpi-label">Time to value</p>
+              <p class="kpi-value">28 days</p>
+              <p class="kpi-trend positive"><span aria-hidden="true">▲</span> 12% faster month-over-month</p>
+              <p class="kpi-meta">Activation, integration, and change enablement milestones converging ahead of plan.</p>
+            </article>
+
+            <article class="kpi-card">
+              <p class="kpi-label">Adoption rate</p>
+              <p class="kpi-value">96%</p>
+              <p class="kpi-trend positive"><span aria-hidden="true">▲</span> +8 pts since launch</p>
+              <p class="kpi-meta">Target personas are enabled and using priority flows daily.</p>
+            </article>
+
+            <article class="kpi-card">
+              <p class="kpi-label">Risk posture</p>
+              <p class="kpi-value">Low</p>
+              <p class="kpi-trend steady"><span aria-hidden="true">●</span> Stable</p>
+              <p class="kpi-meta">RAID items are clear, owned, and mitigated before impacting delivery velocity.</p>
+            </article>
+
+            <article class="kpi-card">
+              <p class="kpi-label">AI readiness score</p>
+              <p class="kpi-value">8.6 / 10</p>
+              <p class="kpi-trend positive"><span aria-hidden="true">▲</span> 2-point lift this quarter</p>
+              <p class="kpi-meta">Data governance, integrations, and training datasets are meeting Icarius AI benchmarks.</p>
+            </article>
           </div>
         </div>
       </div>
