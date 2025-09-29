@@ -26,20 +26,18 @@
 </head>
 <body>
   <header>
-    <div class="container">
-      <nav class="nav">
-        <a class="logo-link" href="index.html">
-          <img src="icarius-logo.svg" alt="Icarius Consulting" />
-          Icarius
-        </a>
-        <nav aria-label="Primary">
-          <a href="index.html">Home</a>
-          <a href="about.html">About</a>
-          <a href="services.html">Services</a>
-          <a href="work.html" aria-current="page">Work</a>
-          <a href="packages.html">Packages</a>
-          <a href="contact.html">Contact</a>
-        </nav>
+    <div class="container nav">
+      <a class="logo-link" href="index.html">
+        <img src="icarius-logo.svg" alt="Icarius" />
+        Icarius
+      </a>
+      <nav aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="work.html" aria-current="page">Work</a>
+        <a href="packages.html">Packages</a>
+        <a href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
@@ -65,8 +63,8 @@
             <li>Analytics</li>
           </ul>
           <blockquote class="quote">
-            "Icarius gave us transparency and momentum—risks were addressed before they became issues."
-            <footer>— CHRO</footer>
+            “Icarius gave us transparency and momentum—risks were addressed before they became issues.”
+            <cite>— CHRO</cite>
           </blockquote>
         </article>
         <article class="card">
@@ -80,8 +78,8 @@
             <li>TA Ops</li>
           </ul>
           <blockquote class="quote">
-            "Our nurse hiring bottleneck finally broke. Insights were actionable day one."
-            <footer>— VP Talent</footer>
+            “Our nurse hiring bottleneck finally broke. Insights were actionable day one.”
+            <cite>— VP Talent</cite>
           </blockquote>
         </article>
         <article class="card">
@@ -95,8 +93,8 @@
             <li>GRC</li>
           </ul>
           <blockquote class="quote">
-            "The audit went from stressful to predictable. Controls were observable."
-            <footer>— CISO</footer>
+            “The audit went from stressful to predictable. Controls were observable.”
+            <cite>— CISO</cite>
           </blockquote>
         </article>
         <article class="card">
@@ -110,8 +108,8 @@
             <li>Scalability</li>
           </ul>
           <blockquote class="quote">
-            "We grew fast without chaos. The templates saved weeks."
-            <footer>— COO</footer>
+            “We grew fast without chaos. The templates saved weeks.”
+            <cite>— COO</cite>
           </blockquote>
         </article>
       </div>
@@ -152,16 +150,16 @@
     <form class="chatbot-form" novalidate>
       <p class="chatbot-status" role="status" aria-live="polite" data-chatbot-status></p>
       <label for="chatbot-name">Name</label>
-      <input id="chatbot-name" name="name" type="text" autocomplete="name" required />
+      <input id="chatbot-name" name="name" type="text" required autocomplete="name" />
       <label for="chatbot-email">Email</label>
-      <input id="chatbot-email" name="email" type="email" autocomplete="email" required />
+      <input id="chatbot-email" name="email" type="email" required autocomplete="email" />
       <label for="chatbot-company">Company (optional)</label>
       <input id="chatbot-company" name="company" type="text" autocomplete="organization" />
       <label for="chatbot-message">How can we help?</label>
       <textarea id="chatbot-message" name="message" rows="3" required></textarea>
       <button type="submit">
         Send to Icarius
-        <span class="chatbot-spinner" aria-hidden="true" data-chatbot-spinner></span>
+        <span aria-hidden="true" class="chatbot-spinner" data-chatbot-spinner></span>
       </button>
     </form>
   </div>
