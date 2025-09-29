@@ -25,20 +25,18 @@
 </head>
 <body>
   <header>
-    <div class="container">
-      <nav class="nav">
-        <a class="logo-link" href="index.html">
-          <img src="icarius-logo.svg" alt="Icarius Consulting logo" />
-          Icarius
-        </a>
-        <nav aria-label="Primary">
-          <a href="index.html">Home</a>
-          <a href="about.html">About</a>
-          <a href="services.html">Services</a>
-          <a href="work.html">Work</a>
-          <a href="packages.html">Packages</a>
-          <a href="contact.html" aria-current="page">Contact</a>
-        </nav>
+    <div class="container nav">
+      <a class="logo-link" href="index.html">
+        <img src="icarius-logo.svg" alt="Icarius" />
+        Icarius
+      </a>
+      <nav aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="work.html">Work</a>
+        <a href="packages.html">Packages</a>
+        <a href="contact.html" aria-current="page">Contact</a>
       </nav>
     </div>
   </header>
@@ -58,17 +56,17 @@
           <form action="https://formsubmit.co/contact@icarius-consulting.com" id="contact-form" method="POST" novalidate>
             <div class="field" data-field="name">
               <label for="name">Full name *</label>
-              <input id="name" name="name" type="text" autocomplete="name" required />
+              <input type="text" id="name" name="name" required autocomplete="name" />
               <span class="error-message">Please tell us your name.</span>
             </div>
             <div class="field" data-field="email">
               <label for="email">Work email *</label>
-              <input id="email" name="email" type="email" autocomplete="email" required />
+              <input type="email" id="email" name="email" required autocomplete="email" />
               <span class="error-message">Enter a valid work email address.</span>
             </div>
             <div class="field" data-field="company">
               <label for="company">Company</label>
-              <input id="company" name="company" type="text" autocomplete="organization" />
+              <input type="text" id="company" name="company" autocomplete="organization" />
             </div>
             <div class="field" data-field="message">
               <label for="message">How can we help? *</label>
@@ -76,7 +74,7 @@
               <span class="error-message">Please share a little about your needs.</span>
             </div>
             <div class="hero-actions">
-              <button class="btn btn-primary" type="submit">Send message</button>
+              <button type="submit" class="btn btn-primary">Send message</button>
               <span class="status-message" id="status-message" role="status" aria-live="polite"></span>
             </div>
           </form>
@@ -103,33 +101,33 @@
     const form = document.getElementById('contact-form');
     const statusMessage = document.getElementById('status-message');
     const requiredFields = ['name', 'email', 'message'];
-    
+
     function validateEmail(value) {
       return /[^@\s]+@[^@\s]+\.[^@\s]+/.test(value);
     }
-    
+
     function clearStatus() {
       statusMessage.textContent = '';
       statusMessage.className = 'status-message';
     }
-    
+
     form.addEventListener('input', (event) => {
       const fieldWrapper = event.target.closest('.field');
       if (!fieldWrapper) return;
       fieldWrapper.classList.remove('error');
       clearStatus();
     });
-    
+
     form.addEventListener('submit', async (event) => {
       event.preventDefault();
       clearStatus();
       let isValid = true;
-      
+
       requiredFields.forEach((fieldName) => {
         const field = form.elements[fieldName];
         const wrapper = field.closest('.field');
         const value = field.value.trim();
-        
+
         if (!value || (fieldName === 'email' && !validateEmail(value))) {
           wrapper.classList.add('error');
           isValid = false;
@@ -137,17 +135,17 @@
           wrapper.classList.remove('error');
         }
       });
-      
+
       if (!isValid) {
         statusMessage.textContent = 'Please correct the highlighted fields.';
         statusMessage.classList.add('error');
         return;
       }
-      
+
       statusMessage.textContent = 'Sending…';
       const formData = new FormData(form);
       const payload = Object.fromEntries(formData.entries());
-      
+
       try {
         const response = await fetch(form.action, {
           method: 'POST',
@@ -157,11 +155,11 @@
           },
           body: JSON.stringify(payload)
         });
-        
+
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
-        
+
         statusMessage.textContent = 'Thanks! We\'ll be in touch shortly.';
         statusMessage.classList.add('success');
         form.reset();
