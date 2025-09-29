@@ -1,35 +1,83 @@
 [
   {
-    "badge": "Audit",
-    "price": "£2,500",
-    "unit": "/ fixed scope",
-    "desc": "HR System Audit: security, roles, config, reporting. Findings + remediation plan in 2 weeks.",
-    "highlights": [
-      "Stakeholder interviews and configuration review",
-      "Security, permissions, and compliance testing",
-      "Prioritised roadmap with quick wins and strategic moves"
-    ]
-  },
-  {
-    "badge": "Implementation",
-    "price": "£6,000",
-    "unit": "/ sprint",
-    "desc": "Project Management sprint for implementation or upgrade. PMO setup, RAID, vendor orchestration.",
-    "highlights": [
-      "Weekly governance, RAID, and steering packs",
-      "Change, testing, and cutover leadership",
-      "Hypercare and transition-to-run support"
-    ]
-  },
-  {
-    "badge": "Fractional",
-    "price": "£3,500",
+    "badge": "Talent Analytics Pro",
+    "price": "$4,500",
     "unit": "/ month",
-    "desc": "1–2 days/week HRIT advisory & delivery leadership, OKRs and cadence.",
+    "desc": "AI-powered talent analytics platform with predictive insights, performance tracking, and workforce optimization.",
     "highlights": [
-      "Roadmap ownership and OKR alignment",
-      "Executive-ready communications and board updates",
-      "Capability uplift for internal HRIT teams"
+      "Predictive hiring success models with 85% accuracy",
+      "Real-time performance analytics and employee engagement tracking",
+      "Automated talent pipeline optimization and succession planning",
+      "Custom dashboards with actionable workforce insights",
+      "Integration with 50+ HR systems and data sources"
+    ],
+    "featured": true
+  },
+  {
+    "badge": "Process Automation Suite",
+    "price": "$3,200",
+    "unit": "/ month",
+    "desc": "Complete HR process automation with intelligent workflows, document processing, and compliance management.",
+    "highlights": [
+      "Automated onboarding workflows reducing time-to-productivity by 60%",
+      "Smart document processing and contract management",
+      "Compliance tracking with automated audit trails",
+      "Employee self-service portal with AI chat support",
+      "Custom workflow builder with no-code interface"
+    ]
+  },
+  {
+    "badge": "AI Transformation Starter",
+    "price": "$2,500",
+    "unit": "/ month",
+    "desc": "Essential AI-powered HR tools for small to medium organizations beginning their digital transformation.",
+    "highlights": [
+      "AI-powered candidate screening and matching",
+      "Automated employee feedback collection and analysis",
+      "Basic performance analytics and reporting",
+      "Email and chat support with dedicated account manager",
+      "Monthly strategic consultation sessions"
+    ]
+  },
+  {
+    "badge": "Enterprise Implementation",
+    "price": "$8,500",
+    "unit": "/ month",
+    "desc": "Full-scale HR transformation with end-to-end project management, system integration, and change management.",
+    "highlights": [
+      "Dedicated project team with certified HR technology specialists",
+      "Complete system integration and data migration services",
+      "Advanced change management with employee training programs",
+      "24/7 priority support and maintenance",
+      "Custom AI model development and deployment",
+      "Executive reporting and ROI tracking"
+    ]
+  },
+  {
+    "badge": "HR System Audit",
+    "price": "$3,500",
+    "unit": "/ one-time",
+    "desc": "Comprehensive HR system assessment with security review, performance optimization, and strategic recommendations.",
+    "highlights": [
+      "Complete system configuration and security audit",
+      "Performance optimization and efficiency analysis",
+      "Compliance assessment with regulatory requirements",
+      "Detailed findings report with prioritized action plan",
+      "Follow-up consultation for implementation guidance"
+    ]
+  },
+  {
+    "badge": "Fractional HRIT Leadership",
+    "price": "$5,000",
+    "unit": "/ month",
+    "desc": "Part-time HRIT executive leadership with strategic planning, team development, and vendor management.",
+    "highlights": [
+      "2-3 days per week dedicated HRIT leadership",
+      "Strategic roadmap development and execution",
+      "Team coaching and capability development",
+      "Vendor relationship management and contract optimization",
+      "Board-ready reporting and executive communications",
+      "OKR alignment and performance management"
     ]
   }
 ]
