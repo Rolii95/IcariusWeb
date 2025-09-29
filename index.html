@@ -178,6 +178,34 @@
       width: 100%;
     }
 
+    .hero-logo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-logo img {
+      width: 56px;
+      height: 56px;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      background: rgba(124, 92, 255, 0.16);
+      border: 1px solid rgba(124, 92, 255, 0.35);
+      color: var(--text);
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+    }
+
     .hero h1 {
       font-size: 4rem;
       font-weight: 800;
@@ -558,6 +586,10 @@
     <section class="hero">
       <div class="container">
         <div class="hero-content">
+          <div class="hero-logo">
+            <img src="icarius-logo.svg" alt="Icarius Consulting logo">
+            <span class="hero-tag">HR Transformation Experts</span>
+          </div>
           <h1>Transform Your HR Technology</h1>
           <p class="subtitle">Expert HRIT Advisory • Project Management • System Audits • AI Solutions</p>
           <div class="cta-buttons">
