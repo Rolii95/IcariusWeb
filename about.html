@@ -26,20 +26,18 @@
 </head>
 <body>
   <header>
-    <div class="container">
-      <nav>
-        <a class="logo-link" href="index.html">
-          <img src="icarius-logo.svg" alt="Icarius Consulting" />
-          Icarius
-        </a>
-        <nav aria-label="Primary">
-          <a href="index.html">Home</a>
-          <a href="about.html" aria-current="page">About</a>
-          <a href="services.html">Services</a>
-          <a href="work.html">Work</a>
-          <a href="packages.html">Packages</a>
-          <a href="contact.html">Contact</a>
-        </nav>
+    <div class="container nav">
+      <a class="logo-link" href="index.html">
+        <img src="icarius-logo.svg" alt="Icarius" />
+        Icarius
+      </a>
+      <nav aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html" aria-current="page">About</a>
+        <a href="services.html">Services</a>
+        <a href="work.html">Work</a>
+        <a href="packages.html">Packages</a>
+        <a href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
@@ -177,16 +175,16 @@
     <form class="chatbot-form" novalidate>
       <p class="chatbot-status" role="status" aria-live="polite" data-chatbot-status></p>
       <label for="chatbot-name">Name</label>
-      <input id="chatbot-name" name="name" type="text" autocomplete="name" required />
+      <input id="chatbot-name" name="name" type="text" required autocomplete="name" />
       <label for="chatbot-email">Email</label>
-      <input id="chatbot-email" name="email" type="email" autocomplete="email" required />
+      <input id="chatbot-email" name="email" type="email" required autocomplete="email" />
       <label for="chatbot-company">Company (optional)</label>
       <input id="chatbot-company" name="company" type="text" autocomplete="organization" />
       <label for="chatbot-message">How can we help?</label>
       <textarea id="chatbot-message" name="message" rows="3" required></textarea>
       <button type="submit">
         Send to Icarius
-        <span class="chatbot-spinner" aria-hidden="true" data-chatbot-spinner></span>
+        <span aria-hidden="true" class="chatbot-spinner" data-chatbot-spinner></span>
       </button>
     </form>
   </div>
