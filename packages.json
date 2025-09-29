@@ -1,7 +1,7 @@
 [
   {
     "badge": "Talent Analytics Pro",
-    "price": "$4,500",
+    "price": "£3,500",
     "unit": "/ month",
     "desc": "AI-powered talent analytics platform with predictive insights, performance tracking, and workforce optimization.",
     "highlights": [
@@ -15,7 +15,7 @@
   },
   {
     "badge": "Process Automation Suite",
-    "price": "$3,200",
+    "price": "£2,500",
     "unit": "/ month",
     "desc": "Complete HR process automation with intelligent workflows, document processing, and compliance management.",
     "highlights": [
@@ -28,7 +28,7 @@
   },
   {
     "badge": "AI Transformation Starter",
-    "price": "$2,500",
+    "price": "£1,950",
     "unit": "/ month",
     "desc": "Essential AI-powered HR tools for small to medium organizations beginning their digital transformation.",
     "highlights": [
@@ -41,7 +41,7 @@
   },
   {
     "badge": "Enterprise Implementation",
-    "price": "$8,500",
+    "price": "£6,650",
     "unit": "/ month",
     "desc": "Full-scale HR transformation with end-to-end project management, system integration, and change management.",
     "highlights": [
@@ -55,7 +55,7 @@
   },
   {
     "badge": "HR System Audit",
-    "price": "$3,500",
+    "price": "£2,750",
     "unit": "/ one-time",
     "desc": "Comprehensive HR system assessment with security review, performance optimization, and strategic recommendations.",
     "highlights": [
@@ -68,7 +68,7 @@
   },
   {
     "badge": "Fractional HRIT Leadership",
-    "price": "$5,000",
+    "price": "£3,900",
     "unit": "/ month",
     "desc": "Part-time HRIT executive leadership with strategic planning, team development, and vendor management.",
     "highlights": [
