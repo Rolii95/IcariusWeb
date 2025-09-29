@@ -26,20 +26,18 @@
 </head>
 <body>
   <header>
-    <div class="container">
-      <nav class="nav">
-        <a aria-label="Go to Home" class="logo-link" href="index.html">
-          <img src="icarius-logo.svg" alt="Icarius Consulting logo" />
-          Icarius
-        </a>
-        <nav aria-label="Primary">
-          <a href="index.html">Home</a>
-          <a href="about.html">About</a>
-          <a href="services.html" aria-current="page">Services</a>
-          <a href="work.html">Work</a>
-          <a href="packages.html">Packages</a>
-          <a href="contact.html">Contact</a>
-        </nav>
+    <div class="container nav">
+      <a class="logo-link" href="index.html">
+        <img src="icarius-logo.svg" alt="Icarius" />
+        Icarius
+      </a>
+      <nav aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html" aria-current="page">Services</a>
+        <a href="work.html">Work</a>
+        <a href="packages.html">Packages</a>
+        <a href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
@@ -54,27 +52,27 @@
           <h2>HRIT Advisory</h2>
           <p>Fractional leadership and roadmap definition grounded in operating reality. We embed with your executive team to chart the right moves.</p>
           <ul class="checklist">
-            <li><span>✓</span>Vision, strategy, and operating model creation</li>
-            <li><span>✓</span>Vendor selection and partner orchestration</li>
-            <li><span>✓</span>Data, integration, and AI readiness assessments</li>
+            <li>✓ Vision, strategy, and operating model creation</li>
+            <li>✓ Vendor selection and partner orchestration</li>
+            <li>✓ Data, integration, and AI readiness assessments</li>
           </ul>
         </article>
         <article class="card">
           <h2>Programme Delivery</h2>
           <p>Delivery leadership that keeps the pace. From PMO setup to hypercare, we bring proven rhythms and stakeholder management.</p>
           <ul class="checklist">
-            <li><span>✓</span>Implementation project management and RAID discipline</li>
-            <li><span>✓</span>Change enablement and communications</li>
-            <li><span>✓</span>Testing, training, and cutover leadership</li>
+            <li>✓ Implementation project management and RAID discipline</li>
+            <li>✓ Change enablement and communications</li>
+            <li>✓ Testing, training, and cutover leadership</li>
           </ul>
         </article>
         <article class="card">
           <h2>System Audit & Optimisation</h2>
           <p>Rapid diagnostics of your HRIS posture with actionable recommendations to improve adoption, compliance, and reporting.</p>
           <ul class="checklist">
-            <li><span>✓</span>Security, permissions, and compliance reviews</li>
-            <li><span>✓</span>Configuration and process optimisation</li>
-            <li><span>✓</span>Analytics and dashboard uplift</li>
+            <li>✓ Security, permissions, and compliance reviews</li>
+            <li>✓ Configuration and process optimisation</li>
+            <li>✓ Analytics and dashboard uplift</li>
           </ul>
         </article>
       </div>
@@ -112,16 +110,16 @@
     <form class="chatbot-form" novalidate>
       <p class="chatbot-status" role="status" aria-live="polite" data-chatbot-status></p>
       <label for="chatbot-name">Name</label>
-      <input id="chatbot-name" name="name" type="text" autocomplete="name" required />
+      <input id="chatbot-name" name="name" type="text" required autocomplete="name" />
       <label for="chatbot-email">Email</label>
-      <input id="chatbot-email" name="email" type="email" autocomplete="email" required />
+      <input id="chatbot-email" name="email" type="email" required autocomplete="email" />
       <label for="chatbot-company">Company (optional)</label>
       <input id="chatbot-company" name="company" type="text" autocomplete="organization" />
       <label for="chatbot-message">How can we help?</label>
       <textarea id="chatbot-message" name="message" rows="3" required></textarea>
       <button type="submit">
         Send to Icarius
-        <span class="chatbot-spinner" aria-hidden="true" data-chatbot-spinner></span>
+        <span aria-hidden="true" class="chatbot-spinner" data-chatbot-spinner></span>
       </button>
     </form>
   </div>
