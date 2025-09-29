@@ -33,7 +33,8 @@
       .price-card::after { content:""; position:absolute; inset:-40% -40%; background: radial-gradient(600px 600px at var(--mx,50%) var(--my,50%), rgba(124,92,255,.28), transparent 60%); transition: 80ms linear; pointer-events:none; z-index:0; }
       .price-card.featured { background: linear-gradient(180deg, #111634, #121948 60%, #0e122e); }
       .price-card .inner { position:relative; z-index:1; }
-      .price-card .ribbon { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #7c5cff, #06b6d4); color: #fff; padding: 6px 12px; border-radius: 999px; font-size: .8rem; font-weight: 700; letter-spacing: .3px; z-index:2; }
+  /* Hide built-in per-card ribbon to prevent truncation; we'll use a floating one */
+  .price-card .ribbon { display:none; }
       .price-head { display:flex; align-items:center; gap:12px; }
       .price-icon { width: 38px; height: 38px; display:grid; place-items:center; border-radius: 12px; background: rgba(124,92,255,.22); color:#dcd5ff; font-weight:800; }
       .price-title { font-weight: 800; letter-spacing: .2px; }
@@ -46,12 +47,57 @@
       .cta .btn { flex:1; }
       .note { text-align:center; margin-top: 14px; color: var(--muted); font-size: .9rem; }
       .learn-btn { position: relative; }
+      
+      /* Swap hover states for pricing buttons */
+      /* Smooth transitions for color, background, shadow and movement */
+      .price-card .cta .btn { transition: background 90ms ease, color 90ms ease, box-shadow 90ms ease, transform 90ms ease, border-color 90ms ease; }
+
+      /* Normal hover styles for each button */
+      .price-card .cta .btn-primary:hover,
+      .price-card .cta .btn-primary:focus {
+        background: rgba(255,255,255,.12);
+        border: 1px solid rgba(255,255,255,.12);
+        color: var(--text);
+        box-shadow: none;
+        transform: translateY(-2px);
+      }
+
+      .price-card .cta .btn-ghost:hover,
+      .price-card .cta .btn-ghost:focus {
+        background: linear-gradient(180deg, var(--primary), #556ef6);
+        color: #0a0f22;
+        box-shadow: 0 18px 30px rgba(107,140,255,.45);
+        border: none;
+        transform: translateY(-2px);
+      }
+
+      /* Swapped hover states: when hovering one button, the other button takes its style */
+      .price-card.hovering-primary .btn-ghost {
+        background: rgba(255,255,255,.12);
+        border: 1px solid rgba(255,255,255,.12);
+        color: var(--text);
+        box-shadow: none;
+        transform: translateY(-2px);
+      }
+
+      .price-card.hovering-ghost .btn-primary {
+        background: rgba(255,255,255,.12);
+        border: 1px solid rgba(255,255,255,.12);
+        color: var(--text);
+        box-shadow: none;
+        transform: translateY(-2px);
+      }
+      
       .inline-panel { display:none; margin-top:10px; border-top:1px solid rgba(255,255,255,.12); padding-top:10px; }
       .price-card.open .inline-panel { display:block; }
       .modal { position: fixed; inset: 0; background: rgba(6,8,20,.6); display: none; align-items: center; justify-content: center; padding: 24px; z-index: 50; }
       .modal[open] { display: flex; }
       .modal-card { background: #0f1220; color:#eef2ff; border-radius: 16px; border:1px solid rgba(124,92,255,.4); max-width: 640px; width: 100%; padding: 22px; box-shadow: 0 30px 80px rgba(0,0,0,.4); }
       .modal-card h3 { margin-top:0; }
+  /* Floating dynamic ribbon that follows hovered card */
+  .floating-ribbon { position:absolute; pointer-events:none; z-index: 5; display:none; }
+  .floating-ribbon .pill { background: linear-gradient(135deg, #7c5cff, #06b6d4); color:#fff; padding:6px 12px; border-radius:999px; font-size:.8rem; font-weight:700; letter-spacing:.3px; white-space:nowrap; box-shadow:0 8px 24px rgba(0,0,0,.35); }
+  @media (max-width: 640px){ .floating-ribbon { display:none !important; } }
       @media (max-width: 980px) { .price-grid { grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); } }
     </style>
   </head>
@@ -112,7 +158,8 @@
       </div>
     </footer>
 
-    <dialog class="modal" id="pkg-modal" aria-labelledby="pkg-title" aria-modal="true"></dialog>
+  <div id="floating-ribbon" class="floating-ribbon" aria-hidden="true"><div class="pill">Most Popular</div></div>
+  <dialog class="modal" id="pkg-modal" aria-labelledby="pkg-title" aria-modal="true"></dialog>
 
     <script>
       // Remove GBP mention only from hero/main copy if present
@@ -196,6 +243,101 @@
           const cards = Array.from(document.querySelectorAll('.price-card'));
           cards.forEach(attachMagneticGlow);
 
+          // Floating ribbon logic: follow hovered card and update text
+          const floating = document.getElementById('floating-ribbon');
+          const floatingPill = floating.querySelector('.pill');
+
+          function showRibbonForCard(card){
+            if (!card) return;
+            // Choose text: featured -> Most Popular, else use the price-title text
+            const title = card.querySelector('.price-title')?.textContent?.trim() || 'Package';
+            const isFeatured = card.classList.contains('featured');
+            floatingPill.textContent = isFeatured ? 'Most Popular' : title;
+
+            // Position: align to top center of the card with slight offset
+            const rect = card.getBoundingClientRect();
+            const top = window.scrollY + rect.top - 14; // 14px above
+            const left = window.scrollX + rect.left + rect.width/2;
+            floating.style.transform = `translate(-50%, -100%)`;
+            floating.style.top = `${top}px`;
+            floating.style.left = `${left}px`;
+            floating.style.display = 'block';
+          }
+
+          function hideRibbon(){
+            floating.style.display = 'none';
+          }
+
+          // Hover listeners per card
+          cards.forEach(card => {
+            card.addEventListener('pointerenter', ()=> showRibbonForCard(card));
+            card.addEventListener('pointermove', ()=> showRibbonForCard(card));
+            card.addEventListener('pointerleave', hideRibbon);
+            // keyboard focus
+            card.addEventListener('focusin', ()=> showRibbonForCard(card));
+            card.addEventListener('focusout', hideRibbon);
+          });
+
+          // Toggle swapped visual state when interacting with either CTA so the
+          // opposite button's style is applied immediately (not only on hover of that button).
+          cards.forEach(card => {
+            const cta = card.querySelector('.cta');
+            if (!cta) return;
+
+            const primary = cta.querySelector('.btn-primary');
+            const ghost = cta.querySelector('.btn-ghost');
+            if (!primary || !ghost) return;
+
+            let hoveredButton = null;
+
+            function updateClasses() {
+              card.classList.remove('hovering-primary', 'hovering-ghost');
+              if (hoveredButton === 'primary') {
+                card.classList.add('hovering-primary');
+              } else if (hoveredButton === 'ghost') {
+                card.classList.add('hovering-ghost');
+              }
+            }
+
+            primary.addEventListener('pointerenter', () => {
+              hoveredButton = 'primary';
+              updateClasses();
+            });
+            primary.addEventListener('pointerleave', () => {
+              hoveredButton = null;
+              updateClasses();
+            });
+
+            ghost.addEventListener('pointerenter', () => {
+              hoveredButton = 'ghost';
+              updateClasses();
+            });
+            ghost.addEventListener('pointerleave', () => {
+              hoveredButton = null;
+              updateClasses();
+            });
+
+            // When leaving the CTA area, ensure cleanup
+            cta.addEventListener('pointerleave', () => {
+              hoveredButton = null;
+              updateClasses();
+            });
+
+            // Keyboard accessibility
+            primary.addEventListener('focus', () => {
+              hoveredButton = 'primary';
+              updateClasses();
+            });
+            ghost.addEventListener('focus', () => {
+              hoveredButton = 'ghost';
+              updateClasses();
+            });
+            cta.addEventListener('blur', () => {
+              hoveredButton = null;
+              updateClasses();
+            }, true);
+          });
+
           const modal = document.getElementById('pkg-modal');
           function openModal(title, html){
             modal.innerHTML = `<div class="modal-card"><h3 id="pkg-title">${title}</h3>${html}<div style="display:flex; gap:10px; margin-top:16px;"><button class="btn btn-primary" onclick="document.getElementById('pkg-modal').close()">Close</button><a class="btn btn-ghost" href="contact.html">Talk to us</a></div></div>`;
@@ -236,4 +378,21 @@
               if (panel) fillInline(panel, pkg.title, pkg.html);
             }, 220);
           });
-          document.getElementById('price-grid').addEventListener('
+          
+          document.getElementById('price-grid').addEventListener('mouseout', (e)=>{
+            clearTimeout(hoverTimer);
+          });
+
+        } catch (error) {
+          console.error('Error loading packages:', error);
+          document.getElementById('price-grid').innerHTML = '<p>Error loading packages. Please refresh the page.</p>';
+        }
+      }
+
+      // Initialize packages when DOM is loaded
+      document.addEventListener('DOMContentLoaded', loadPackages);
+    </script>
+  </body>
+</html>
+  </body>
+</html>
