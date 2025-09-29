@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Work — Icarius Consulting</title>
-  <link rel="shortcut icon" rel="icon" href="favicon.ico?v=2" />
+  <link rel="shortcut icon" href="favicon.ico?v=2" />
   <link rel="icon" href="favicon.ico?v=2" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2" />
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
@@ -21,144 +21,128 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="chatbot.css" />
-  <style>
-    :root { --bg:#070a12; --surface:#0d1424; --surface-alt:#10192c; --text:#ecf2ff; --muted:#95a8c5; --brand:#7c5cff; --accent:#18c2b5; --border:rgba(255,255,255,.08); --shadow:0 24px 64px rgba(8,14,27,.55); }
-    *{box-sizing:border-box}
-    body{font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:var(--text);margin:0;line-height:1.6}
-    .container{max-width:1200px;margin:0 auto;padding:0 2rem}
-    header{position:fixed;inset:0 0 auto;z-index:1000;background:rgba(13,20,36,.8);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:1rem 0}
-    nav{display:flex;justify-content:space-between;align-items:center}
-    .logo{display:flex;align-items:center;gap:.75rem;font-weight:700;color:var(--text);text-decoration:none}
-    .logo img{width:32px;height:32px}
-    .nav-links{display:flex;gap:1.75rem;list-style:none;margin:0;padding:0}
-    .nav-links a{color:var(--muted);text-decoration:none;font-weight:500}
-    .nav-links a:hover,.nav-links a.active{color:var(--text)}
-    main{padding-top:6rem}
-    .hero{text-align:center;padding:4rem 0}
-    .hero h1{font-size:3rem;margin:0 0 1rem;background:linear-gradient(135deg,var(--brand),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-    .hero p{color:var(--muted);max-width:720px;margin:0 auto}
-    .section{padding:4rem 0}
-    .section h2{font-size:2.25rem;text-align:center;margin:0 0 2rem}
-    .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5rem}
-    .project-card{background:var(--surface);border:1px solid var(--border);border-radius:1rem;padding:2rem}
-    .project-header{display:flex;gap:1rem;align-items:center;margin-bottom:.5rem}
-    .project-icon{width:48px;height:48px;border-radius:.75rem;background:linear-gradient(135deg,var(--brand),var(--accent));display:flex;align-items:center;justify-content:center}
-    .project-card h3{color:var(--brand);margin:.25rem 0}
-    .project-meta{color:var(--muted);font-size:.9rem;margin-bottom:.5rem}
-    .project-card p{color:var(--muted)}
-    .project-tags{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.75rem}
-    .tag{background:var(--surface-alt);border:1px solid var(--border);border-radius:999px;padding:.2rem .6rem;font-size:.8rem;color:var(--text)}
-    .quote{background:var(--surface-alt);border:1px solid var(--border);border-radius:.75rem;padding:1rem;margin-top:1rem;color:var(--muted)}
-    .cta{text-align:center;padding:4rem 0}
-    .btn{display:inline-block;background:linear-gradient(135deg,var(--brand),var(--accent));color:#fff;text-decoration:none;padding:1rem 1.5rem;border-radius:.5rem;font-weight:600}
-    footer{background:var(--surface);border-top:1px solid var(--border);text-align:center;padding:2rem 0;color:var(--muted)}
-  </style>
 </head>
 <body>
   <header>
     <div class="container">
-      <nav>
-        <a class="logo" href="index.html"><img src="icarius-logo.svg" alt="Icarius Consulting"/> Icarius</a>
-        <ul class="nav-links">
+      <nav class="nav">
+        <a class="logo-link" href="index.html">
+          <img src="icarius-logo.svg" alt="Icarius Consulting" />
+          Icarius
+        </a>
+        <nav aria-label="Primary">
           <a href="index.html">Home</a>
           <a href="about.html">About</a>
           <a href="services.html">Services</a>
-          <a class="active" href="work.html">Work</a>
+          <a href="work.html" aria-current="page">Work</a>
           <a href="packages.html">Packages</a>
           <a href="contact.html">Contact</a>
-        </ul>
+        </nav>
       </nav>
     </div>
   </header>
   <main>
     <section class="hero">
       <div class="container">
+        <span class="eyebrow">Portfolio</span>
         <h1>Case Studies</h1>
-        <p>Selected projects and testimonials that illustrate measurable outcomes and Taskade-style clarity.</p>
+        <p>Selected projects and testimonials that illustrate measurable outcomes and clear delivery.</p>
       </div>
     </section>
-
-    <section class="section">
-      <div class="container">
-        <h2>Featured Projects</h2>
-        <div class="projects">
-          <article class="project-card">
-            <div class="project-header">
-              <div class="project-icon">🏢</div>
-              <div>
-                <h3>Global Manufacturing HR Overhaul</h3>
-                <div class="project-meta">Fortune 500 • 12 months • +96% adoption</div>
-              </div>
-            </div>
-            <p>Modernized core HR, talent, and analytics. Delivered integrated Workday modules, consolidated data, and launched role-based dashboards.</p>
-            <div class="project-tags"><span class="tag">Integration</span><span class="tag">Change</span><span class="tag">Analytics</span></div>
-            <blockquote class="quote">“Icarius gave us transparency and momentum—risks were addressed before they became issues.” — CHRO</blockquote>
-          </article>
-
-          <article class="project-card">
-            <div class="project-header">
-              <div class="project-icon">🏥</div>
-              <div>
-                <h3>Healthcare AI Hiring</h3>
-                <div class="project-meta">15 hospitals • 8 months • −40% time-to-hire</div>
-              </div>
-            </div>
-            <p>Implemented AI screening and pipeline analytics. Automated compliance checks and created sourcing dashboards for critical roles.</p>
-            <div class="project-tags"><span class="tag">AI/ML</span><span class="tag">Compliance</span><span class="tag">TA Ops</span></div>
-            <blockquote class="quote">“Our nurse hiring bottleneck finally broke. Insights were actionable day one.” — VP Talent</blockquote>
-          </article>
-
-          <article class="project-card">
-            <div class="project-header">
-              <div class="project-icon">💼</div>
-              <div>
-                <h3>Banking Cloud HR</h3>
-                <div class="project-meta">Investment bank • 10 months • ISO-aligned</div>
-              </div>
-            </div>
-            <p>Migrated HR workloads to compliant cloud architecture, hardened access controls, and automated audit evidence collection.</p>
-            <div class="project-tags"><span class="tag">Cloud</span><span class="tag">Security</span><span class="tag">GRC</span></div>
-            <blockquote class="quote">“The audit went from stressful to predictable. Controls were observable.” — CISO</blockquote>
-          </article>
-
-          <article class="project-card">
-            <div class="project-header">
-              <div class="project-icon">🚀</div>
-              <div>
-                <h3>Startup HR Foundation</h3>
-                <div class="project-meta">Series B • 4 months • Ready for 500+ scale</div>
-              </div>
-            </div>
-            <p>Established lightweight HRIS, automated onboarding, and baseline analytics. Playbooks enabled hiring managers to self-serve.</p>
-            <div class="project-tags"><span class="tag">Playbooks</span><span class="tag">Automation</span><span class="tag">Scalability</span></div>
-            <blockquote class="quote">“We grew fast without chaos. The templates saved weeks.” — COO</blockquote>
-          </article>
+    <section class="container">
+      <h2>Featured Projects</h2>
+      <div class="grid-3">
+        <article class="card">
+          <div class="badge">Fortune 500</div>
+          <h3>Global Manufacturing HR Overhaul</h3>
+          <p class="muted">12 months • +96% adoption</p>
+          <p>Modernized core HR, talent, and analytics. Delivered integrated Workday modules, consolidated data, and launched role-based dashboards.</p>
+          <ul class="list-inline">
+            <li>Integration</li>
+            <li>Change</li>
+            <li>Analytics</li>
+          </ul>
+          <blockquote class="quote">
+            "Icarius gave us transparency and momentum—risks were addressed before they became issues."
+            <footer>— CHRO</footer>
+          </blockquote>
+        </article>
+        <article class="card">
+          <div class="badge">Healthcare</div>
+          <h3>AI Hiring Platform</h3>
+          <p class="muted">15 hospitals • 8 months • −40% time-to-hire</p>
+          <p>Implemented AI screening and pipeline analytics. Automated compliance checks and created sourcing dashboards for critical roles.</p>
+          <ul class="list-inline">
+            <li>AI/ML</li>
+            <li>Compliance</li>
+            <li>TA Ops</li>
+          </ul>
+          <blockquote class="quote">
+            "Our nurse hiring bottleneck finally broke. Insights were actionable day one."
+            <footer>— VP Talent</footer>
+          </blockquote>
+        </article>
+        <article class="card">
+          <div class="badge">Investment Bank</div>
+          <h3>Banking Cloud HR</h3>
+          <p class="muted">10 months • ISO-aligned</p>
+          <p>Migrated HR workloads to compliant cloud architecture, hardened access controls, and automated audit evidence collection.</p>
+          <ul class="list-inline">
+            <li>Cloud</li>
+            <li>Security</li>
+            <li>GRC</li>
+          </ul>
+          <blockquote class="quote">
+            "The audit went from stressful to predictable. Controls were observable."
+            <footer>— CISO</footer>
+          </blockquote>
+        </article>
+        <article class="card">
+          <div class="badge">Series B</div>
+          <h3>Startup HR Foundation</h3>
+          <p class="muted">4 months • Ready for 500+ scale</p>
+          <p>Established lightweight HRIS, automated onboarding, and baseline analytics. Playbooks enabled hiring managers to self-serve.</p>
+          <ul class="list-inline">
+            <li>Playbooks</li>
+            <li>Automation</li>
+            <li>Scalability</li>
+          </ul>
+          <blockquote class="quote">
+            "We grew fast without chaos. The templates saved weeks."
+            <footer>— COO</footer>
+          </blockquote>
+        </article>
+      </div>
+    </section>
+    <section class="container">
+      <div class="contact-card">
+        <h2>Ready to start?</h2>
+        <p>Explore packages or request a custom scope.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="packages.html">View Packages</a>
         </div>
       </div>
     </section>
-
-    <section class="cta">
-      <div class="container">
-        <h2>Ready to start?</h2>
-        <p class="muted">Explore packages or request a custom scope.</p>
-        <a class="btn" href="packages.html">View Packages</a>
-      </div>
-    </section>
   </main>
-
   <footer>
-    <div class="container">© 2024 Icarius Consulting. All rights reserved.</div>
+    <div class="container footer-inner">
+      <span class="tagline">© 2025 Icarius Consulting</span>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </div>
   </footer>
-
-  <button class="chatbot-toggle" type="button" aria-expanded="false" aria-controls="chatbot-panel" aria-label="Open Icarius chatbot">💬</button>
-  <div class="chatbot-panel" id="chatbot-panel" hidden role="dialog" aria-modal="true" aria-labelledby="chatbot-title">
+  <button class="chatbot-toggle" type="button" aria-label="Open Icarius chatbot" aria-controls="chatbot-panel" aria-expanded="false">💬</button>
+  <div class="chatbot-panel" id="chatbot-panel" role="dialog" aria-modal="true" aria-labelledby="chatbot-title" hidden>
     <div class="chatbot-header">
       <h2 id="chatbot-title">Icarius Assistant</h2>
-      <button class="chatbot-close" type="button" data-chatbot-close aria-label="Close chatbot">×</button>
+      <button class="chatbot-close" type="button" aria-label="Close chatbot" data-chatbot-close>×</button>
     </div>
     <div class="chatbot-body">
-      <div class="chatbot-messages" data-chatbot-messages role="log" aria-live="polite"></div>
+      <div class="chatbot-messages" role="log" aria-live="polite" data-chatbot-messages></div>
       <div class="chatbot-quick-replies">
         <button type="button" data-chatbot-reply="overview">What does Icarius do?</button>
         <button type="button" data-chatbot-reply="services">Which services do you offer?</button>
@@ -166,7 +150,7 @@
       </div>
     </div>
     <form class="chatbot-form" novalidate>
-      <p class="chatbot-status" data-chatbot-status role="status" aria-live="polite"></p>
+      <p class="chatbot-status" role="status" aria-live="polite" data-chatbot-status></p>
       <label for="chatbot-name">Name</label>
       <input id="chatbot-name" name="name" type="text" autocomplete="name" required />
       <label for="chatbot-email">Email</label>
@@ -175,7 +159,10 @@
       <input id="chatbot-company" name="company" type="text" autocomplete="organization" />
       <label for="chatbot-message">How can we help?</label>
       <textarea id="chatbot-message" name="message" rows="3" required></textarea>
-      <button type="submit">Send to Icarius <span class="chatbot-spinner" data-chatbot-spinner aria-hidden="true"></span></button>
+      <button type="submit">
+        Send to Icarius
+        <span class="chatbot-spinner" aria-hidden="true" data-chatbot-spinner></span>
+      </button>
     </form>
   </div>
   <script defer src="chatbot.js"></script>
