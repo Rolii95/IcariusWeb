@@ -1,46 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Packages — Icarius Consulting</title>
-    <link rel="shortcut icon" href="favicon.ico?v=2" />
-    <link rel="icon" href="favicon.ico?v=2" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2" />
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-    <link rel="manifest" href="manifest.json" />
-    <meta property="og:title" content="Packages — Icarius Consulting" />
-    <meta property="og:description" content="HRIT Advisory • Project Management • HR System Audit • HR AI Expertise" />
-    <meta property="og:image" content="og-image-brand.png" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://icarius-consulting.com/packages.html" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Packages — Icarius Consulting" />
-    <meta name="twitter:description" content="HRIT Advisory • Project Management • HR System Audit • HR AI Expertise" />
-    <meta name="twitter:image" content="og-image-brand.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="shortcut icon" href="favicon.ico?v=2"/>
+    <link rel="icon" href="favicon.ico?v=2"/>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
+    <link rel="manifest" href="manifest.json"/>
+    <meta property="og:title" content="Packages — Icarius Consulting"/>
+    <meta property="og:description" content="HRIT Advisory • Project Management • HR System Audit • HR AI Expertise"/>
+    <meta property="og:image" content="og-image-brand.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://icarius-consulting.com/packages.html"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="Packages — Icarius Consulting"/>
+    <meta name="twitter:description" content="HRIT Advisory • Project Management • HR System Audit • HR AI Expertise"/>
+    <meta name="twitter:image" content="og-image-brand.png"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="styles.css"/>
     <style>
       .pricing-hero { text-align: center; padding: 30px 0 10px; }
       .pricing-hero h1 { margin-bottom: 10px; }
       .pricing-hero p { max-width: 720px; margin: 0 auto; }
       .price-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 24px; margin-top: 24px; }
-      .price-card { border-radius: var(--radius); border: 1px solid var(--border); background: #fff; padding: 26px; box-shadow: 0 12px 30px rgba(0,0,0,.06); display: flex; flex-direction: column; gap: 14px; }
-      .price-card.featured { border-color: #7c5cff; position: relative; background: linear-gradient(180deg, #ffffff, #f8f7ff); }
-      .price-card.featured .ribbon { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #7c5cff, #06b6d4); color: #fff; padding: 6px 12px; border-radius: 999px; font-size: .8rem; font-weight: 700; letter-spacing: .3px; }
+      /* Visually striking card background + reactive outer glow */
+      .price-card { position: relative; border-radius: var(--radius); border: 1px solid transparent; background: linear-gradient(180deg, #0f1220, #171b39); padding: 26px; box-shadow: 0 12px 30px rgba(0,0,0,.25); display: flex; flex-direction: column; gap: 14px; color: #eef2ff; overflow: hidden; isolation:isolate; }
+      .price-card::before { content:""; position:absolute; inset:-1px; border-radius: inherit; padding:1px; background: conic-gradient(from 180deg at var(--mx,50%) var(--my,50%), #7c5cff, #06b6d4, #22c55e, #7c5cff); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; z-index:0; transition: background-position 80ms linear; }
+      .price-card::after { content:""; position:absolute; inset:-40% -40%; background: radial-gradient(600px 600px at var(--mx,50%) var(--my,50%), rgba(124,92,255,.28), transparent 60%); transition: 80ms linear; pointer-events:none; z-index:0; }
+      .price-card.featured { background: linear-gradient(180deg, #111634, #121948 60%, #0e122e); }
+      .price-card .inner { position:relative; z-index:1; }
+      .price-card .ribbon { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #7c5cff, #06b6d4); color: #fff; padding: 6px 12px; border-radius: 999px; font-size: .8rem; font-weight: 700; letter-spacing: .3px; z-index:2; }
       .price-head { display:flex; align-items:center; gap:12px; }
-      .price-icon { width: 38px; height: 38px; display:grid; place-items:center; border-radius: 12px; background: rgba(124,92,255,.12); color:#6243ff; font-weight:800; }
+      .price-icon { width: 38px; height: 38px; display:grid; place-items:center; border-radius: 12px; background: rgba(124,92,255,.22); color:#dcd5ff; font-weight:800; }
       .price-title { font-weight: 800; letter-spacing: .2px; }
       .price { font-size: 2rem; font-weight: 800; }
-      .per { color: var(--muted); font-size: .9rem; }
+      .per { color: #a8b0cf; font-size: .9rem; }
       .feat { list-style: none; margin: 6px 0 0; padding: 0; display: grid; gap: 10px; }
       .feat li { display:flex; align-items:center; gap:10px; }
       .feat li span { width: 22px; height: 22px; border-radius:50%; background: rgba(6,182,212,.15); color:#06b6d4; display:grid; place-items:center; font-size:.75rem; font-weight: 800; }
       .cta { margin-top: 8px; display:flex; gap:10px; }
       .cta .btn { flex:1; }
       .note { text-align:center; margin-top: 14px; color: var(--muted); font-size: .9rem; }
+      .learn-btn { position: relative; }
+      .inline-panel { display:none; margin-top:10px; border-top:1px solid rgba(255,255,255,.12); padding-top:10px; }
+      .price-card.open .inline-panel { display:block; }
+      .modal { position: fixed; inset: 0; background: rgba(6,8,20,.6); display: none; align-items: center; justify-content: center; padding: 24px; z-index: 50; }
+      .modal[open] { display: flex; }
+      .modal-card { background: #0f1220; color:#eef2ff; border-radius: 16px; border:1px solid rgba(124,92,255,.4); max-width: 640px; width: 100%; padding: 22px; box-shadow: 0 30px 80px rgba(0,0,0,.4); }
+      .modal-card h3 { margin-top:0; }
       @media (max-width: 980px) { .price-grid { grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); } }
     </style>
   </head>
@@ -48,7 +59,7 @@
     <header>
       <div class="container nav">
         <a class="logo-link" href="index.html">
-          <img src="icarius-logo.svg" alt="Icarius" />
+          <img alt="Icarius"/>
           Icarius
         </a>
         <nav aria-label="Primary">
@@ -56,24 +67,21 @@
           <a href="about.html">About</a>
           <a href="services.html">Services</a>
           <a href="work.html">Work</a>
-          <a href="packages.html" aria-current="page">Packages</a>
+          <a aria-current="page" href="packages.html">Packages</a>
           <a href="contact.html">Contact</a>
         </nav>
       </div>
     </header>
-
     <main>
       <section class="container pricing-hero">
         <span class="eyebrow">Pricing</span>
-        <h1>Simple, transparent pricing in GBP</h1>
-        <p>Pick a plan that fits your HR tech journey. Scale up anytime. All prices shown in UK pounds.</p>
+        <h1>Simple, transparent pricing</h1>
+        <p id="pricing-copy">Pick a plan that fits your HR tech journey. Scale up anytime.</p>
       </section>
-
       <section class="container">
-        <div id="price-grid" class="price-grid" aria-live="polite"></div>
+        <div aria-live="polite" class="price-grid" id="price-grid"></div>
         <p class="note">Need a custom plan or enterprise SOW? Contact us and we’ll tailor a package.</p>
       </section>
-
       <section class="container">
         <div class="grid-3">
           <div class="card">
@@ -94,7 +102,6 @@
         </div>
       </section>
     </main>
-
     <footer>
       <div class="container footer-inner">
         <span class="tagline">© 2025 Icarius Consulting</span>
@@ -105,65 +112,128 @@
       </div>
     </footer>
 
-    <button class="chatbot-toggle" type="button" aria-label="Open Icarius chatbot" aria-controls="chatbot-panel" aria-expanded="false">💬</button>
-    <div class="chatbot-panel" id="chatbot-panel" role="dialog" aria-modal="true" aria-labelledby="chatbot-title" hidden>
-      <div class="chatbot-header">
-        <h2 id="chatbot-title">Icarius Assistant</h2>
-        <button class="chatbot-close" type="button" aria-label="Close chatbot" data-chatbot-close>×</button>
-      </div>
-      <div class="chatbot-body">
-        <div class="chatbot-messages" role="log" aria-live="polite" data-chatbot-messages></div>
-        <div class="chatbot-quick-replies">
-          <button type="button" data-chatbot-reply="overview">What does Icarius do?</button>
-          <button type="button" data-chatbot-reply="services">Which services do you offer?</button>
-          <button type="button" data-chatbot-reply="process">How does engagement work?</button>
-        </div>
-      </div>
-      <form class="chatbot-form" novalidate>
-        <p class="chatbot-status" role="status" aria-live="polite" data-chatbot-status></p>
-        <label for="chatbot-name">Name</label>
-        <input id="chatbot-name" name="name" type="text" autocomplete="name" required />
-        <label for="chatbot-email">Email</label>
-        <input id="chatbot-email" name="email" type="email" autocomplete="email" required />
-        <label for="chatbot-company">Company (optional)</label>
-        <input id="chatbot-company" name="company" type="text" autocomplete="organization" />
-        <label for="chatbot-message">How can we help?</label>
-        <textarea id="chatbot-message" name="message" rows="3" required></textarea>
-        <button type="submit">Send to Icarius <span class="chatbot-spinner" data-chatbot-spinner aria-hidden="true"></span></button>
-      </form>
-    </div>
+    <dialog class="modal" id="pkg-modal" aria-labelledby="pkg-title" aria-modal="true"></dialog>
 
-    <script defer src="chatbot.js"></script>
     <script>
+      // Remove GBP mention only from hero/main copy if present
+      (function(){
+        const el = document.getElementById('pricing-copy');
+        if (el) el.textContent = (el.textContent||'').replace(/\bGBP\b|£/gi,'').trim();
+      })();
+
+      // Dynamic glow following mouse movement on each card
+      function attachMagneticGlow(card){
+        card.addEventListener('mousemove', (e)=>{
+          const rect = card.getBoundingClientRect();
+          const x = ((e.clientX - rect.left) / rect.width) * 100;
+          const y = ((e.clientY - rect.top) / rect.height) * 100;
+          card.style.setProperty('--mx', x+'%');
+          card.style.setProperty('--my', y+'%');
+        });
+      }
+
+      // Unique dynamic content per package (keys should align with packages.json entries)
+      const packageExplainers = {
+        starter: {
+          title: 'Starter Sprint',
+          html: '<p>Kick off with a 2–4 week sprint focused on clarity: scope, roadmap, and vendor options.</p><ul><li>Discovery workshops</li><li>Baseline architecture</li><li>Prioritized backlog</li></ul>'
+        },
+        delivery: {
+          title: 'Delivery Lead',
+          html: '<p>Hands-on PM/PMO leadership with RAID discipline and stakeholder cadence.</p><ul><li>Weekly steering</li><li>Risk & dependency control</li><li>Cutover readiness</li></ul>'
+        },
+        audit: {
+          title: 'HRIS Audit',
+          html: '<p>Rapid diagnostics for config, security, and analytics with a 30/60/90 plan.</p><ul><li>Access reviews</li><li>Config scorecard</li><li>Reporting uplift</li></ul>'
+        },
+        ai: {
+          title: 'HR AI Accelerator',
+          html: '<p>Experiment safely with AI for HR. Patterns, prompts, and guardrails.</p><ul><li>Use-case canvas</li><li>Data & integration readiness</li><li>Pilot design</li></ul>'
+        },
+        enterprise: {
+          title: 'Enterprise Transformation',
+          html: '<p>Multi-workstream program governance, benefits tracking, and vendor orchestration.</p><ul><li>Operating model</li><li>Change & comms</li><li>Value realization</li></ul>'
+        }
+      };
+
       async function loadPackages() {
         try {
           const res = await fetch('packages.json', { cache: 'no-store' });
           const data = await res.json();
           const grid = document.getElementById('price-grid');
-          grid.innerHTML = data.map((p,i) => `
-            <article class="price-card ${p.featured ? 'featured' : ''}">
+          grid.innerHTML = data.map((p,i) => {
+            // Keep original card pricing including GBP for cards
+            const price = (p.price || '');
+            const unit = (p.unit || '');
+            const key = (p.key || p.badge || ('pkg'+i)).toString().toLowerCase().replace(/[^a-z0-9]+/g,'');
+            const icon = i===0?'📊':i===1?'⚙️':i===2?'🤖':i===3?'🏢':i===4?'🔍':'👤';
+            const inlineId = `inline-${key}`;
+            return `
+            <article class="price-card ${p.featured ? 'featured' : ''}" data-key="${key}">
               ${p.featured ? '<div class="ribbon">Most Popular</div>' : ''}
-              <div class="price-head">
-                <div class="price-icon">${i===0?'📊':i===1?'⚙️':i===2?'🤖':i===3?'🏢':i===4?'🔍':'👤'}</div>
-                <div class="price-title">${p.badge}</div>
+              <div class="inner">
+                <div class="price-head">
+                  <div class="price-icon">${icon}</div>
+                  <div class="price-title">${p.badge}</div>
+                </div>
+                <div>
+                  <div class="price">${price}</div>
+                  <div class="per">${unit.replace('/',' per ')}</div>
+                </div>
+                <ul class="feat">
+                  ${(p.highlights||[]).map(h => `<li><span>✓</span>${h}</li>`).join('')}
+                </ul>
+                <div class="cta">
+                  <a class="btn btn-primary" href="contact.html">Start now</a>
+                  <button class="btn btn-ghost learn-btn" type="button" data-learn data-inline="#${inlineId}">Learn more</button>
+                </div>
+                <div id="${inlineId}" class="inline-panel" hidden></div>
               </div>
-              <div>
-                <div class="price">${p.price}</div>
-                <div class="per">${p.unit.replace('/','per ')}</div>
-              </div>
-              <ul class="feat">
-                ${p.highlights.map(h => `<li><span>✓</span>${h}</li>`).join('')}
-              </ul>
-              <div class="cta">
-                <a class="btn btn-primary" href="contact.html">Start now</a>
-                <a class="btn btn-ghost" href="about.html">Learn more</a>
-              </div>
-            </article>`).join('');
-        } catch (e) {
-          document.getElementById('price-grid').innerHTML = '<p>Unable to load packages right now. Please refresh.</p>';
-        }
-      }
-      loadPackages();
-    </script>
-  </body>
-</html>
+            </article>`;
+          }).join('');
+
+          // Attach effects and handlers
+          const cards = Array.from(document.querySelectorAll('.price-card'));
+          cards.forEach(attachMagneticGlow);
+
+          const modal = document.getElementById('pkg-modal');
+          function openModal(title, html){
+            modal.innerHTML = `<div class="modal-card"><h3 id="pkg-title">${title}</h3>${html}<div style="display:flex; gap:10px; margin-top:16px;"><button class="btn btn-primary" onclick="document.getElementById('pkg-modal').close()">Close</button><a class="btn btn-ghost" href="contact.html">Talk to us</a></div></div>`;
+            if (!modal.open) modal.showModal();
+          }
+
+          function fillInline(panel, title, html){
+            panel.innerHTML = `<h4 style=\"margin:0 0 8px 0;\">${title}</h4>${html}`;
+            panel.hidden = false;
+            panel.closest('.price-card')?.classList.add('open');
+          }
+
+          // Click to open modal AND reveal inline panel with same content
+          document.getElementById('price-grid').addEventListener('click', (e)=>{
+            const btn = e.target.closest('[data-learn]');
+            if(!btn) return;
+            const card = btn.closest('.price-card');
+            const key = card?.dataset.key;
+            const panelSel = btn.getAttribute('data-inline');
+            const panel = panelSel ? card.querySelector(panelSel) : null;
+            const pkg = packageExplainers[key] || { title: 'Package details', html: '<p>Contact us for a tailored scope.</p>' };
+            if (panel) fillInline(panel, pkg.title, pkg.html);
+            openModal(pkg.title, pkg.html);
+          });
+
+          // Hover to preview inline (no modal) after short delay
+          let hoverTimer;
+          document.getElementById('price-grid').addEventListener('mouseover', (e)=>{
+            const btn = e.target.closest('[data-learn]');
+            if(!btn) return;
+            clearTimeout(hoverTimer);
+            hoverTimer = setTimeout(()=>{
+              const card = btn.closest('.price-card');
+              const key = card?.dataset.key;
+              const panelSel = btn.getAttribute('data-inline');
+              const panel = panelSel ? card.querySelector(panelSel) : null;
+              const pkg = packageExplainers[key] || { title: 'Package details', html: '<p>Contact us for a tailored scope.</p>' };
+              if (panel) fillInline(panel, pkg.title, pkg.html);
+            }, 220);
+          });
+          document.getElementById('price-grid').addEventListener('
