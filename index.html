@@ -1,1 +1,185 @@
-btn-ghost" href="services.html"
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Icarius Consulting — Build faster with Taskade‑style workflows</title>
+  <meta name="description" content="Icarius Consulting helps startups ship faster. Strategy, design, and engineering with Taskade‑style productivity and collaboration." />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="mask-icon" href="/favicon.svg" color="#111827" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta name="theme-color" content="#0b1022" />
+  <link rel="manifest" href="/manifest.json" />
+  <meta property="og:title" content="Icarius Consulting" />
+  <meta property="og:description" content="Strategy, design, and engineering. Ship faster with Icarius." />
+  <meta property="og:image" content="/og-image-brand.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"></noscript>
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/chatbot.css" />
+  <style>
+    :root { --brand:#7c3aed; --brand-2:#06b6d4; --bg:#0b1022; --text:#e5e7eb; }
+    body { background: radial-gradient(1200px 600px at 10% -10%, rgba(124,58,237,.35), transparent), radial-gradient(1000px 600px at 100% 0%, rgba(6,182,212,.25), transparent), var(--bg); color: var(--text); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 24px; }
+    header.nav { position: sticky; top:0; z-index:40; backdrop-filter: saturate(180%) blur(8px); background: rgba(11,16,34,.6); border-bottom: 1px solid rgba(148,163,184,.12); }
+    header .row { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+    .logo { display:flex; align-items:center; gap:10px; text-decoration:none; color:#fff; font-weight:700; letter-spacing:.2px; }
+    .logo img { width:28px; height:28px; }
+    nav.primary a { color:#cbd5e1; text-decoration:none; margin:0 10px; padding:10px 12px; border-radius:10px; transition:all .2s; }
+    nav.primary a:hover { color:#fff; background:rgba(255,255,255,.06); }
+    .btn { display:inline-flex; align-items:center; gap:10px; padding:12px 18px; border-radius:12px; text-decoration:none; font-weight:600; transition:transform .15s ease, box-shadow .2s ease, background .2s ease; }
+    .btn-ghost { background: transparent; color:#fff; border:1px solid rgba(148,163,184,.25); }
+    .btn-ghost:hover { border-color: rgba(255,255,255,.5); transform: translateY(-1px); }
+    .btn-primary { background: linear-gradient(90deg, var(--brand), var(--brand-2)); color:#0b1022; box-shadow: 0 8px 24px rgba(124,58,237,.35); }
+    .btn-primary:hover { transform: translateY(-1px) scale(1.01); }
+    .hero { padding: 80px 0 40px; text-align:center; position:relative; overflow:hidden; }
+    .floating { position:absolute; inset: -20% -10% auto; pointer-events:none; opacity:.6; filter: blur(60px); animation: float 12s ease-in-out infinite; }
+    @keyframes float { 0%,100%{ transform: translateY(0);} 50%{ transform: translateY(16px);} }
+    .headline { font-size: clamp(28px, 4.2vw, 56px); font-weight:800; line-height:1.05; letter-spacing:-.02em; }
+    .sub { max-width:780px; margin:16px auto 28px; color:#cbd5e1; font-size: clamp(16px, 2vw, 19px); }
+    .metrics { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:16px; margin-top:28px; }
+    .metric { background: rgba(255,255,255,.04); border:1px solid rgba(148,163,184,.15); border-radius:14px; padding:16px; }
+    .metric h4 { margin:0; font-size:22px; }
+    .metric p { margin:6px 0 0; color:#94a3b8; font-size:14px; }
+    .services { padding: 40px 0; }
+    .services-grid { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:16px; }
+    .card { background: rgba(255,255,255,.04); border:1px solid rgba(148,163,184,.15); border-radius:16px; padding:20px; position:relative; overflow:hidden; }
+    .card .pulse { position:absolute; inset:auto -40% -40% auto; width:160px; height:160px; background: radial-gradient(closest-side, rgba(124,58,237,.35), transparent); animation: pulse 3s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{ transform:scale(1);} 50%{ transform:scale(1.1);} }
+    .card h3 { margin:0 0 8px; }
+    .card p { color:#a5b4fc; margin:0 0 18px; }
+    .demo { padding: 40px 0; display:grid; grid-template-columns: 1.1fr .9fr; gap:26px; align-items:center; }
+    .demo .pane { background: rgba(255,255,255,.04); border:1px solid rgba(148,163,184,.15); border-radius:16px; padding:16px; min-height:260px; }
+    .demo .dock { display:flex; gap:8px; margin-bottom:10px; }
+    .dot { width:10px; height:10px; border-radius:50%; background:#ef4444; }
+    .dot.y { background:#f59e0b; }
+    .dot.g { background:#22c55e; }
+    .demo pre { background:#0f172a; color:#e2e8f0; border-radius:12px; padding:16px; overflow:auto; max-height:280px; }
+    .testimonials { padding:40px 0; }
+    .carousel { display:flex; gap:16px; overflow:auto; scroll-snap-type:x mandatory; }
+    .t { scroll-snap-align:start; min-width: 320px; background: rgba(255,255,255,.04); border:1px solid rgba(148,163,184,.15); border-radius:16px; padding:18px; }
+    .t .who { display:flex; align-items:center; gap:12px; margin-top:12px; color:#cbd5e1; }
+    footer { padding: 40px 0 60px; color:#94a3b8; }
+    .cta-row { display:flex; gap:12px; justify-content:center; }
+    @media (max-width: 960px) {
+      .metrics{ grid-template-columns: 1fr; }
+      .services-grid{ grid-template-columns: 1fr; }
+      .demo{ grid-template-columns: 1fr; }
+      nav.primary { display:none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="container row">
+      <a class="logo" href="/">
+        <img src="/icarius-logo.svg" alt="Icarius Consulting" />
+        <span>Icarius Consulting</span>
+      </a>
+      <nav class="primary" aria-label="Primary">
+        <a href="/services.html">Services</a>
+        <a href="/work.html">Work</a>
+        <a href="/packages.html">Packages</a>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+      <div class="actions">
+        <a class="btn btn-ghost" href="/packages.html">View Packages</a>
+        <a class="btn btn-primary" href="/contact.html">Get Started</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="floating" aria-hidden="true"></div>
+      <div class="container">
+        <h1 class="headline">Build, Launch, and Grow — faster.</h1>
+        <p class="sub">Strategy, design, and engineering services crafted for momentum. Taskade‑style focus with collaborative velocity. We turn ideas into shipped product.</p>
+        <div class="cta-row">
+          <a class='btn btn-ghost' href='services.html'>Explore Services</a>
+          <a class="btn btn-primary" href="/work.html">See Our Work</a>
+        </div>
+        <div class="metrics" aria-label="Key outcomes">
+          <div class="metric"><h4>3x faster</h4><p>Average time‑to‑launch improvement</p></div>
+          <div class="metric"><h4>+42%</h4><p>Conversion uptick after redesigns</p></div>
+          <div class="metric"><h4>99.9%</h4><p>Uptime across managed deployments</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services">
+      <div class="container">
+        <h2>Services that accelerate your roadmap</h2>
+        <div class="services-grid">
+          <div class="card"><div class="pulse" aria-hidden="true"></div><h3>Product Strategy</h3><p>North‑star alignment, roadmaps, and OKRs that drive outcomes.</p><a class="btn btn-ghost" href="/services.html#strategy">Learn more</a></div>
+          <div class="card"><div class="pulse" aria-hidden="true"></div><h3>Design Systems</h3><p>Accessible, scalable UI libraries that ship with velocity.</p><a class="btn btn-ghost" href="/services.html#design">Learn more</a></div>
+          <div class="card"><div class="pulse" aria-hidden="true"></div><h3>Full‑stack Delivery</h3><p>From prototype to production with CI/CD and observability.</p><a class="btn btn-ghost" href="/services.html#engineering">Learn more</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="demo">
+      <div class="container" style="display:contents">
+        <div class="pane">
+          <div class="dock"><span class="dot"></span><span class="dot y"></span><span class="dot g"></span></div>
+          <pre><code>// packages.json powers pricing dynamically
+fetch('/packages.json')
+  .then(r => r.json())
+  .then(pkgs => console.log('Packages loaded', pkgs))</code></pre>
+        </div>
+        <div class="pane">
+          <h3>Collaborative dashboard</h3>
+          <p>Plan, track, and ship work in a streamlined Taskade‑style flow with checklists, sections, and progress indicators.</p>
+          <ul>
+            <li>Kanban and checklist hybrid boards</li>
+            <li>Real‑time status chips and progress</li>
+            <li>Auto‑synced docs and briefs</li>
+          </ul>
+          <a class="btn btn-primary" href="/packages.html">Explore Packages</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <div class="container">
+        <h2>Loved by founders and operators</h2>
+        <div class="carousel" aria-label="Testimonials">
+          <article class="t">
+            “Icarius helped us cut our launch timeline in half without sacrificing quality.”
+            <div class="who"><img src="/favicon.svg" alt="" width="20" height="20"/> <strong>Amira K.</strong> • COO</div>
+          </article>
+          <article class="t">
+            “The design system unlocked velocity across teams. Everything became plug‑and‑play.”
+            <div class="who"><img src="/favicon.svg" alt="" width="20" height="20"/> <strong>Daniel S.</strong> • Head of Product</div>
+          </article>
+            <article class="t">
+            “From concept to production with rock‑solid reliability. Couldn’t ask for more.”
+            <div class="who"><img src="/favicon.svg" alt="" width="20" height="20"/> <strong>Priya M.</strong> • CTO</div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <img src="/icarius-logo.svg" alt="Icarius" width="20" height="20"/>
+        <span>© <span id="y"></span> Icarius Consulting. All rights reserved.</span>
+      </div>
+      <nav aria-label="Footer">
+        <a href="/sitemap.xml">Sitemap</a>
+        <a href="/robots.txt">Robots</a>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <script src="/chatbot.js" defer></script>
+</body>
+</html>
