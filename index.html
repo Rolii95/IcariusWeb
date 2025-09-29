@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -39,6 +39,9 @@
     .btn-primary { background: linear-gradient(90deg, var(--brand), var(--brand-2)); color:#0b1022; box-shadow: 0 8px 24px rgba(124,58,237,.35); }
     .btn-primary:hover { transform: translateY(-1px) scale(1.01); }
 
+    /* Actions container for CTA buttons */
+    .actions { display: flex; gap: 12px; align-items: center; }
+
     /* Hero central stack */
     .hero { padding: 96px 0 40px; position:relative; overflow:hidden; }
     .hero .center { max-width: 820px; margin: 0 auto; text-align:center; display:flex; flex-direction:column; gap: 20px; }
@@ -67,7 +70,6 @@
     .carousel { display:flex; gap:16px; overflow:auto; scroll-snap-type:x mandatory; padding-bottom: 8px; }
     .t { scroll-snap-align:start; min-width: 320px; background: rgba(255,255,255,.04); border:1px solid rgba(148,163,184,.15); border-radius:16px; padding:18px; }
     .t .who { display:flex; align-items:center; gap:12px; margin-top:12px; color:#cbd5e1; }
-
     footer { padding: 40px 0 60px; color:#94a3b8; }
 
     /* Responsive fixes */
@@ -98,7 +100,6 @@
       </div>
     </div>
   </header>
-
   <main>
     <!-- Hero central block -->
     <section class="hero">
@@ -118,7 +119,6 @@
         </div>
       </div>
     </section>
-
     <!-- Optional services section hidden on landing by default -->
     <section class="services" style="display:none" aria-hidden="true">
       <div class="container">
@@ -130,7 +130,6 @@
         </div>
       </div>
     </section>
-
     <!-- Demo section -->
     <section class="demo">
       <div class="container" style="display:contents">
@@ -153,29 +152,27 @@ fetch('/packages.json')
         </div>
       </div>
     </section>
-
     <!-- Testimonials below demo -->
     <section class="testimonials">
       <div class="container">
         <h2>Loved by founders and operators</h2>
         <div class="carousel" aria-label="Testimonials">
           <article class="t">
-            “Icarius helped us cut our launch timeline in half without sacrificing quality.”
+            "Icarius helped us cut our launch timeline in half without sacrificing quality."
             <div class="who"><img src="/favicon.svg" alt="" width="20" height="20"/> <strong>Amira K.</strong> • COO</div>
           </article>
           <article class="t">
-            “The design system unlocked velocity across teams. Everything became plug‑and‑play.”
+            "The design system unlocked velocity across teams. Everything became plug‑and‑play."
             <div class="who"><img src="/favicon.svg" alt="" width="20" height="20"/> <strong>Daniel S.</strong> • Head of Product</div>
           </article>
           <article class="t">
-            “From concept to production with rock‑solid reliability. Couldn’t ask for more.”
+            "From concept to production with rock‑solid reliability. Couldn't ask for more."
             <div class="who"><img src="/favicon.svg" alt="" width="20" height="20"/> <strong>Priya M.</strong> • CTO</div>
           </article>
         </div>
       </div>
     </section>
   </main>
-
   <footer>
     <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;">
       <div style="display:flex; align-items:center; gap:10px;">
