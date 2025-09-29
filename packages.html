@@ -1,400 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Packages — Icarius Consulting</title>
-
-  <!-- Icons (relative paths for subdirectory support) -->
-  <link href="favicon.ico?v=2" rel="shortcut icon"/>
-  <link rel="icon" href="favicon.ico?v=2">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  <link rel="manifest" href="manifest.json">
-
-  <meta property="og:title" content="Packages — Icarius Consulting" />
-  <meta property="og:description" content="HRIT Advisory • Project Management • HR System Audit • HR AI Expertise" />
-  <meta property="og:image" content="og-image-brand.png" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://icarius-consulting.com/packages.html" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Packages — Icarius Consulting" />
-  <meta name="twitter:description" content="HRIT Advisory • Project Management • HR System Audit • HR AI Expertise" />
-  <meta name="twitter:image" content="og-image-brand.png" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="chatbot.css">
-
-  <style>
-    :root {
-      --bg: #070a12;
-      --surface: #0d1424;
-      --surface-alt: #10192c;
-      --text: #ecf2ff;
-      --muted: #95a8c5;
-      --brand: #7c5cff;
-      --accent: #18c2b5;
-      --border: rgba(255, 255, 255, 0.08);
-      --shadow: 0 24px 64px rgba(8, 14, 27, 0.55);
-    }
-
-    * { box-sizing: border-box; }
-    
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      background: rgba(13, 20, 36, 0.8);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-      z-index: 1000;
-      padding: 1rem 0;
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      text-decoration: none;
-      color: var(--text);
-      font-weight: 700;
-      font-size: 1.25rem;
-    }
-
-    .logo img {
-      width: 32px;
-      height: 32px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: var(--text);
-    }
-
-    main {
-      margin-top: 5rem;
-      padding: 4rem 0;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 4rem 0;
-    }
-
-    .hero h1 {
-      font-size: 3.5rem;
-      font-weight: 800;
-      margin: 0 0 1rem 0;
-      background: linear-gradient(135deg, var(--brand), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .hero p {
-      font-size: 1.25rem;
-      color: var(--muted);
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .packages {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2rem;
-      margin: 4rem 0;
-    }
-
-    .package-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 1rem;
-      padding: 2rem;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .package-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow);
-    }
-
-    .package-card.featured {
-      border-color: var(--brand);
-      position: relative;
-    }
-
-    .package-card.featured::before {
-      content: 'Most Popular';
-      position: absolute;
-      top: -12px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: linear-gradient(135deg, var(--brand), var(--accent));
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 1rem;
-      font-size: 0.875rem;
-      font-weight: 600;
-    }
-
-    .package-header {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .package-name {
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      color: var(--brand);
-    }
-
-    .package-price {
-      font-size: 2.5rem;
-      font-weight: 800;
-      margin-bottom: 0.5rem;
-    }
-
-    .package-duration {
-      color: var(--muted);
-      font-size: 0.875rem;
-    }
-
-    .package-features {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 2rem 0;
-    }
-
-    .package-features li {
-      padding: 0.75rem 0;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .package-features li:last-child {
-      border-bottom: none;
-    }
-
-    .feature-icon {
-      color: var(--accent);
-      font-weight: 600;
-    }
-
-    .btn {
-      display: block;
-      width: 100%;
-      background: linear-gradient(135deg, var(--brand), var(--accent));
-      color: white;
-      text-decoration: none;
-      padding: 1rem 2rem;
-      border-radius: 0.5rem;
-      font-weight: 600;
-      text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 32px rgba(124, 92, 255, 0.3);
-    }
-
-    .btn-secondary {
-      background: var(--surface-alt);
-      border: 1px solid var(--border);
-    }
-
-    .btn-secondary:hover {
-      box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
-    }
-
-    footer {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      padding: 2rem 0;
-      text-align: center;
-      color: var(--muted);
-    }
-
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-      }
-      
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-      
-      .container {
-        padding: 0 1rem;
-      }
-      
-      .packages {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
-</head>
-
-<body>
-  <header>
-    <div class="container">
-      <nav>
-        <a href="index.html" class="logo">
-          <img src="icarius-logo.svg" alt="Icarius Consulting">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Packages — Icarius Consulting</title>
+    <link rel="shortcut icon" href="favicon.ico?v=2" />
+    <link rel="icon" href="favicon.ico?v=2" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="manifest" href="manifest.json" />
+    <meta property="og:title" content="Packages — Icarius Consulting" />
+    <meta property="og:description" content="HRIT Advisory • Project Management • HR System Audit • HR AI Expertise" />
+    <meta property="og:image" content="og-image-brand.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://icarius-consulting.com/packages.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Packages — Icarius Consulting" />
+    <meta name="twitter:description" content="HRIT Advisory • Project Management • HR System Audit • HR AI Expertise" />
+    <meta name="twitter:image" content="og-image-brand.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .pricing-hero { text-align: center; padding: 30px 0 10px; }
+      .pricing-hero h1 { margin-bottom: 10px; }
+      .pricing-hero p { max-width: 720px; margin: 0 auto; }
+      .price-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 24px; margin-top: 24px; }
+      .price-card { border-radius: var(--radius); border: 1px solid var(--border); background: #fff; padding: 26px; box-shadow: 0 12px 30px rgba(0,0,0,.06); display: flex; flex-direction: column; gap: 14px; }
+      .price-card.featured { border-color: #7c5cff; position: relative; background: linear-gradient(180deg, #ffffff, #f8f7ff); }
+      .price-card.featured .ribbon { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #7c5cff, #06b6d4); color: #fff; padding: 6px 12px; border-radius: 999px; font-size: .8rem; font-weight: 700; letter-spacing: .3px; }
+      .price-head { display:flex; align-items:center; gap:12px; }
+      .price-icon { width: 38px; height: 38px; display:grid; place-items:center; border-radius: 12px; background: rgba(124,92,255,.12); color:#6243ff; font-weight:800; }
+      .price-title { font-weight: 800; letter-spacing: .2px; }
+      .price { font-size: 2rem; font-weight: 800; }
+      .per { color: var(--muted); font-size: .9rem; }
+      .feat { list-style: none; margin: 6px 0 0; padding: 0; display: grid; gap: 10px; }
+      .feat li { display:flex; align-items:center; gap:10px; }
+      .feat li span { width: 22px; height: 22px; border-radius:50%; background: rgba(6,182,212,.15); color:#06b6d4; display:grid; place-items:center; font-size:.75rem; font-weight: 800; }
+      .cta { margin-top: 8px; display:flex; gap:10px; }
+      .cta .btn { flex:1; }
+      .note { text-align:center; margin-top: 14px; color: var(--muted); font-size: .9rem; }
+      @media (max-width: 980px) { .price-grid { grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); } }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <a class="logo-link" href="index.html">
+          <img src="icarius-logo.svg" alt="Icarius" />
           Icarius
         </a>
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="work.html">Work</a></li>
-          <li><a href="packages.html" class="active">Packages</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+        <nav aria-label="Primary">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="work.html">Work</a>
+          <a href="packages.html" aria-current="page">Packages</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
 
-  <main>
-    <div class="container">
-      <section class="hero">
-        <h1>Service Packages</h1>
-        <p>Choose the right consulting package for your HR technology transformation needs.</p>
+    <main>
+      <section class="container pricing-hero">
+        <span class="eyebrow">Pricing</span>
+        <h1>Simple, transparent pricing in GBP</h1>
+        <p>Pick a plan that fits your HR tech journey. Scale up anytime. All prices shown in UK pounds.</p>
       </section>
 
-      <div class="packages">
-        <div class="package-card">
-          <div class="package-header">
-            <h2 class="package-name">Strategic Advisory</h2>
-            <div class="package-price">$2,500</div>
-            <div class="package-duration">per month</div>
-          </div>
-          <ul class="package-features">
-            <li><span class="feature-icon">✓</span> Monthly strategic planning sessions</li>
-            <li><span class="feature-icon">✓</span> Technology roadmap development</li>
-            <li><span class="feature-icon">✓</span> Vendor assessment and selection</li>
-            <li><span class="feature-icon">✓</span> Email and phone support</li>
-          </ul>
-          <a href="about.html" class="btn btn-secondary">Get Started</a>
-        </div>
+      <section class="container">
+        <div id="price-grid" class="price-grid" aria-live="polite"></div>
+        <p class="note">Need a custom plan or enterprise SOW? Contact us and we’ll tailor a package.</p>
+      </section>
 
-        <div class="package-card featured">
-          <div class="package-header">
-            <h2 class="package-name">Full Implementation</h2>
-            <div class="package-price">$5,000</div>
-            <div class="package-duration">per month</div>
+      <section class="container">
+        <div class="grid-3">
+          <div class="card">
+            <div class="badge">Why Icarius</div>
+            <h3>Outcome-first delivery</h3>
+            <p>We focus on measurable business outcomes and incremental wins.</p>
           </div>
-          <ul class="package-features">
-            <li><span class="feature-icon">✓</span> End-to-end project management</li>
-            <li><span class="feature-icon">✓</span> System configuration and setup</li>
-            <li><span class="feature-icon">✓</span> Data migration and integration</li>
-            <li><span class="feature-icon">✓</span> Training and change management</li>
-            <li><span class="feature-icon">✓</span> Priority support and maintenance</li>
-          </ul>
-          <a href="about.html" class="btn">Get Started</a>
+          <div class="card">
+            <div class="badge">Fast ROI</div>
+            <h3>Accelerated timelines</h3>
+            <p>Templates, playbooks, and proven patterns reduce time-to-value.</p>
+          </div>
+          <div class="card">
+            <div class="badge">Trusted</div>
+            <h3>Enterprise-ready</h3>
+            <p>Security, change management, and stakeholder alignment built-in.</p>
+          </div>
         </div>
+      </section>
+    </main>
 
-        <div class="package-card">
-          <div class="package-header">
-            <h2 class="package-name">System Audit</h2>
-            <div class="package-price">$3,500</div>
-            <div class="package-duration">one-time</div>
-          </div>
-          <ul class="package-features">
-            <li><span class="feature-icon">✓</span> Comprehensive system review</li>
-            <li><span class="feature-icon">✓</span> Performance optimization recommendations</li>
-            <li><span class="feature-icon">✓</span> Security and compliance assessment</li>
-            <li><span class="feature-icon">✓</span> Detailed findings report</li>
-          </ul>
-          <a href="about.html" class="btn btn-secondary">Get Started</a>
+    <footer>
+      <div class="container footer-inner">
+        <span class="tagline">© 2025 Icarius Consulting</span>
+        <nav>
+          <a href="/">Home</a>
+          <a href="/contact.html">Contact</a>
+        </nav>
+      </div>
+    </footer>
+
+    <button class="chatbot-toggle" type="button" aria-label="Open Icarius chatbot" aria-controls="chatbot-panel" aria-expanded="false">💬</button>
+    <div class="chatbot-panel" id="chatbot-panel" role="dialog" aria-modal="true" aria-labelledby="chatbot-title" hidden>
+      <div class="chatbot-header">
+        <h2 id="chatbot-title">Icarius Assistant</h2>
+        <button class="chatbot-close" type="button" aria-label="Close chatbot" data-chatbot-close>×</button>
+      </div>
+      <div class="chatbot-body">
+        <div class="chatbot-messages" role="log" aria-live="polite" data-chatbot-messages></div>
+        <div class="chatbot-quick-replies">
+          <button type="button" data-chatbot-reply="overview">What does Icarius do?</button>
+          <button type="button" data-chatbot-reply="services">Which services do you offer?</button>
+          <button type="button" data-chatbot-reply="process">How does engagement work?</button>
         </div>
       </div>
+      <form class="chatbot-form" novalidate>
+        <p class="chatbot-status" role="status" aria-live="polite" data-chatbot-status></p>
+        <label for="chatbot-name">Name</label>
+        <input id="chatbot-name" name="name" type="text" autocomplete="name" required />
+        <label for="chatbot-email">Email</label>
+        <input id="chatbot-email" name="email" type="email" autocomplete="email" required />
+        <label for="chatbot-company">Company (optional)</label>
+        <input id="chatbot-company" name="company" type="text" autocomplete="organization" />
+        <label for="chatbot-message">How can we help?</label>
+        <textarea id="chatbot-message" name="message" rows="3" required></textarea>
+        <button type="submit">Send to Icarius <span class="chatbot-spinner" data-chatbot-spinner aria-hidden="true"></span></button>
+      </form>
     </div>
-  </main>
 
-  <footer>
-    <div class="container">
-      <p>&copy; 2024 Icarius Consulting. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <button class="chatbot-toggle" type="button" aria-expanded="false" aria-controls="chatbot-panel" aria-label="Open Icarius chatbot">
-    💬
-  </button>
-  <div class="chatbot-panel" id="chatbot-panel" hidden role="dialog" aria-modal="true" aria-labelledby="chatbot-title">
-    <div class="chatbot-header">
-      <h2 id="chatbot-title">Icarius Assistant</h2>
-      <button class="chatbot-close" type="button" data-chatbot-close aria-label="Close chatbot">&times;</button>
-    </div>
-    <div class="chatbot-body">
-      <div class="chatbot-messages" data-chatbot-messages role="log" aria-live="polite"></div>
-      <div class="chatbot-quick-replies">
-        <button type="button" data-chatbot-reply="overview">What does Icarius do?</button>
-        <button type="button" data-chatbot-reply="services">Which services do you offer?</button>
-        <button type="button" data-chatbot-reply="process">How does engagement work?</button>
-      </div>
-    </div>
-    <form class="chatbot-form" novalidate>
-      <p class="chatbot-status" data-chatbot-status role="status" aria-live="polite"></p>
-      <label for="chatbot-name">Name</label>
-      <input id="chatbot-name" name="name" type="text" autocomplete="name" required />
-      <label for="chatbot-email">Email</label>
-      <input id="chatbot-email" name="email" type="email" autocomplete="email" required />
-      <label for="chatbot-company">Company (optional)</label>
-      <input id="chatbot-company" name="company" type="text" autocomplete="organization" />
-      <label for="chatbot-message">How can we help?</label>
-      <textarea id="chatbot-message" name="message" rows="3" required></textarea>
-      <button type="submit">
-        <span>Send to Icarius</span>
-        <span class="chatbot-spinner" data-chatbot-spinner aria-hidden="true"></span>
-      </button>
-    </form>
-  </div>
-  <script src="chatbot.js" defer></script>
-</body>
+    <script defer src="chatbot.js"></script>
+    <script>
+      async function loadPackages() {
+        try {
+          const res = await fetch('packages.json', { cache: 'no-store' });
+          const data = await res.json();
+          const grid = document.getElementById('price-grid');
+          grid.innerHTML = data.map((p,i) => `
+            <article class="price-card ${p.featured ? 'featured' : ''}">
+              ${p.featured ? '<div class="ribbon">Most Popular</div>' : ''}
+              <div class="price-head">
+                <div class="price-icon">${i===0?'📊':i===1?'⚙️':i===2?'🤖':i===3?'🏢':i===4?'🔍':'👤'}</div>
+                <div class="price-title">${p.badge}</div>
+              </div>
+              <div>
+                <div class="price">${p.price}</div>
+                <div class="per">${p.unit.replace('/','per ')}</div>
+              </div>
+              <ul class="feat">
+                ${p.highlights.map(h => `<li><span>✓</span>${h}</li>`).join('')}
+              </ul>
+              <div class="cta">
+                <a class="btn btn-primary" href="contact.html">Start now</a>
+                <a class="btn btn-ghost" href="about.html">Learn more</a>
+              </div>
+            </article>`).join('');
+        } catch (e) {
+          document.getElementById('price-grid').innerHTML = '<p>Unable to load packages right now. Please refresh.</p>';
+        }
+      }
+      loadPackages();
+    </script>
+  </body>
 </html>
