@@ -45,6 +45,8 @@
       .feat li span { width: 22px; height: 22px; border-radius:50%; background: rgba(6,182,212,.15); color:#06b6d4; display:grid; place-items:center; font-size:.75rem; font-weight: 800; }
       .cta { margin-top: 8px; display:flex; gap:10px; }
       .cta .btn { flex:1; }
+      .price-card .cta book-cta { flex:1; display:flex; }
+      .price-card .cta book-cta .btn { width:100%; justify-content:center; }
       .note { text-align:center; margin-top: 14px; color: var(--muted); font-size: .9rem; }
       .learn-btn { position: relative; }
       
@@ -126,7 +128,7 @@
       </section>
       <section class="container">
         <div aria-live="polite" class="price-grid" id="price-grid"></div>
-        <p class="note">Need a custom plan or enterprise SOW? Contact us and we’ll tailor a package.</p>
+        <p class="note">Need a custom plan or enterprise SOW? <book-cta variant="inline" label="Book a discovery call"></book-cta> and we’ll tailor a package.</p>
       </section>
       <section class="container">
         <div class="grid-3">
@@ -161,6 +163,7 @@
   <div id="floating-ribbon" class="floating-ribbon" aria-hidden="true"><div class="pill">Most Popular</div></div>
   <dialog class="modal" id="pkg-modal" aria-labelledby="pkg-title" aria-modal="true"></dialog>
 
+    <script src="/components/book-cta.js" defer></script>
     <script>
       // Remove GBP mention only from hero/main copy if present
       (function(){
@@ -231,7 +234,7 @@
                   ${(p.highlights||[]).map(h => `<li><span>✓</span>${h}</li>`).join('')}
                 </ul>
                 <div class="cta">
-                  <a class="btn btn-primary" href="/contact">Start now</a>
+                  <book-cta label="Start now" plan="${key}"></book-cta>
                   <button class="btn btn-ghost learn-btn" type="button" data-learn data-inline="#${inlineId}">Learn more</button>
                 </div>
                 <div id="${inlineId}" class="inline-panel" hidden></div>
@@ -339,8 +342,9 @@
           });
 
           const modal = document.getElementById('pkg-modal');
-          function openModal(title, html){
-            modal.innerHTML = `<div class="modal-card"><h3 id="pkg-title">${title}</h3>${html}<div style="display:flex; gap:10px; margin-top:16px;"><button class="btn btn-primary" onclick="document.getElementById('pkg-modal').close()">Close</button><a class="btn btn-ghost" href="/contact">Talk to us</a></div></div>`;
+          function openModal(title, html, planKey){
+            const planAttr = planKey ? ` plan="${planKey}"` : '';
+            modal.innerHTML = `<div class="modal-card"><h3 id="pkg-title">${title}</h3>${html}<div style="display:flex; gap:10px; margin-top:16px;"><button class="btn btn-primary" onclick="document.getElementById('pkg-modal').close()">Close</button><book-cta variant="ghost" label="Talk to us"${planAttr}></book-cta></div></div>`;
             if (!modal.open) modal.showModal();
           }
 
@@ -358,9 +362,9 @@
             const key = card?.dataset.key;
             const panelSel = btn.getAttribute('data-inline');
             const panel = panelSel ? card.querySelector(panelSel) : null;
-            const pkg = packageExplainers[key] || { title: 'Package details', html: '<p>Contact us for a tailored scope.</p>' };
+            const pkg = packageExplainers[key] || { title: 'Package details', html: '<p><book-cta variant="inline" label="Book a discovery call"></book-cta> for a tailored scope.</p>' };
             if (panel) fillInline(panel, pkg.title, pkg.html);
-            openModal(pkg.title, pkg.html);
+            openModal(pkg.title, pkg.html, key);
           });
 
           // Hover to preview inline (no modal) after short delay
@@ -374,7 +378,7 @@
               const key = card?.dataset.key;
               const panelSel = btn.getAttribute('data-inline');
               const panel = panelSel ? card.querySelector(panelSel) : null;
-              const pkg = packageExplainers[key] || { title: 'Package details', html: '<p>Contact us for a tailored scope.</p>' };
+              const pkg = packageExplainers[key] || { title: 'Package details', html: '<p><book-cta variant="inline" label="Book a discovery call"></book-cta> for a tailored scope.</p>' };
               if (panel) fillInline(panel, pkg.title, pkg.html);
             }, 220);
           });
@@ -392,7 +396,5 @@
       // Initialize packages when DOM is loaded
       document.addEventListener('DOMContentLoaded', loadPackages);
     </script>
-  </body>
-</html>
   </body>
 </html>

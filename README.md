@@ -37,3 +37,4 @@ The site includes a manifest and icons so it can be installed as a Progressive W
 - Hosted on: [https://icarius-consulting.com](https://icarius-consulting.com)
 - Built with: **HTML5 + CSS3 (Inter font)**, no JS framework required.
 - Analytics, calendly, and form integrations can be added via embedded scripts.
+- Booking CTAs resolve the scheduler URL from `NEXT_PUBLIC_BOOKING_URL`. Provide this in `.env.local` for local previews and set the same value in Vercel Project Settings.
