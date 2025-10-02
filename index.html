@@ -39,6 +39,8 @@
     .btn-primary { background: linear-gradient(90deg, var(--brand), var(--brand-2)); color:#0b1022; box-shadow: 0 8px 24px rgba(124,58,237,.35); }
     .btn-primary:hover { transform: translateY(-1px) scale(1.01); }
 
+    book-cta { display:inline-flex; }
+
     /* Actions container for CTA buttons */
     .actions { display: flex; gap: 12px; align-items: center; }
 
@@ -96,7 +98,7 @@
       </nav>
       <div class="actions">
         <a class="btn btn-ghost" href="/packages">View Packages</a>
-        <a class="btn btn-primary" href="/contact">Get Started</a>
+        <book-cta label="Book a discovery call"></book-cta>
       </div>
     </div>
   </header>
@@ -110,6 +112,7 @@
           <div class="cta-row">
             <a class='btn btn-ghost' href='/services'>Explore Services</a>
             <a class="btn btn-primary" href="/work">See Our Work</a>
+            <book-cta label="Book a call"></book-cta>
           </div>
           <div class="metrics" aria-label="Key outcomes">
             <div class="metric"><h4>3x faster</h4><p>Average time‑to‑launch improvement</p></div>
@@ -188,6 +191,7 @@ fetch('/packages.json')
     </div>
   </footer>
   <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <script src="/components/book-cta.js" defer></script>
   <script src="/chatbot.js" defer></script>
 </body>
 </html>

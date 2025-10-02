@@ -221,6 +221,24 @@ p {
   transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
 }
 
+.cta-inline {
+  display: inline;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: rgba(255, 255, 255, 0.4);
+}
+
+.cta-inline:hover,
+.cta-inline:focus-visible {
+  color: var(--primary-2);
+}
+
+book-cta {
+  display: inline-flex;
+}
+
 .btn-primary {
   background: linear-gradient(180deg, var(--primary), #556ef6);
   color: #0a0f22;
