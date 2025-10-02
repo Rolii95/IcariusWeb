@@ -1,6 +1,13 @@
 {
   "cleanUrls": true,
+  "trailingSlash": false,
   "redirects": [
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/about.html", "destination": "/about", "permanent": true },
+    { "source": "/services.html", "destination": "/services", "permanent": true },
+    { "source": "/work.html", "destination": "/work", "permanent": true },
+    { "source": "/packages.html", "destination": "/packages", "permanent": true },
+    { "source": "/contact.html", "destination": "/contact", "permanent": true },
     {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "www.icarius-consulting.com" }],
