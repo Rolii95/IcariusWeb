@@ -53,7 +53,7 @@
         <div class="contact-card">
           <h2>Share a few details</h2>
           <p>We'll respond within one business day. Required fields are marked with *</p>
-          <form action="https://formsubmit.co/contact@icarius-consulting.com" id="contact-form" method="POST" novalidate>
+          <form id="contact-form" method="POST" novalidate>
             <div class="field" data-field="name">
               <label for="name">Full name *</label>
               <input type="text" id="name" name="name" required autocomplete="name" />
@@ -96,81 +96,7 @@
       </nav>
     </div>
   </footer>
-  <script>
-    document.getElementById('year')?.textContent = new Date().getFullYear();
-    const form = document.getElementById('contact-form');
-    const statusMessage = document.getElementById('status-message');
-    const requiredFields = ['name', 'email', 'message'];
-
-    function validateEmail(value) {
-      return /[^@\s]+@[^@\s]+\.[^@\s]+/.test(value);
-    }
-
-    function clearStatus() {
-      statusMessage.textContent = '';
-      statusMessage.className = 'status-message';
-    }
-
-    form.addEventListener('input', (event) => {
-      const fieldWrapper = event.target.closest('.field');
-      if (!fieldWrapper) return;
-      fieldWrapper.classList.remove('error');
-      clearStatus();
-    });
-
-    form.addEventListener('submit', async (event) => {
-      event.preventDefault();
-      clearStatus();
-      let isValid = true;
-
-      requiredFields.forEach((fieldName) => {
-        const field = form.elements[fieldName];
-        const wrapper = field.closest('.field');
-        const value = field.value.trim();
-
-        if (!value || (fieldName === 'email' && !validateEmail(value))) {
-          wrapper.classList.add('error');
-          isValid = false;
-        } else {
-          wrapper.classList.remove('error');
-        }
-      });
-
-      if (!isValid) {
-        statusMessage.textContent = 'Please correct the highlighted fields.';
-        statusMessage.classList.add('error');
-        return;
-      }
-
-      statusMessage.textContent = 'Sending…';
-      const formData = new FormData(form);
-      const payload = Object.fromEntries(formData.entries());
-
-      try {
-        const response = await fetch(form.action, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify(payload)
-        });
-
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-
-        statusMessage.textContent = 'Thanks! We\'ll be in touch shortly.';
-        statusMessage.classList.add('success');
-        form.reset();
-      } catch (error) {
-        const mailBody = `Name: ${payload.name || ''}\nEmail: ${payload.email || ''}\nCompany: ${payload.company || ''}\n\nMessage:\n${payload.message || ''}`;
-        window.location.href = `mailto:contact@icarius-consulting.com?subject=Icarius%20Consulting%20Inquiry&body=${encodeURIComponent(mailBody)}`;
-        statusMessage.textContent = 'Launching your email client… if nothing happens, reach us at contact@icarius-consulting.com.';
-        statusMessage.classList.add('error');
-      }
-    });
-  </script>
+  <script type="module" src="contact.js"></script>
   <script async src="https://assets.calendly.com/assets/external/widget.js"></script>
 </body>
 </html>
